@@ -13,9 +13,33 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
-from django.contrib import admin
+# from django.conf.urls import url
+# from django.contrib import admin
+from django.conf.urls import url, include
+# для редиректа с главной страницы в папку:
+from django.views.generic.base import RedirectView
+# для раздачи медиа ТОЛЬКО на ТЕСТОВОМ сервере
+from django.conf import settings
+from django.conf.urls.static import static
+
+starturl = r'^django/profile_ig/'
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    # url(r'^admin/', admin.site.urls),
+    # редирект с главной страницы в папку:
+    url(r'^$', RedirectView.
+        as_view(url='django/profile_ig/')),
 ]
+urlpatterns += [
+    # url(starturl, include('app_main.urls')),
+]
+
+
+# для раздачи медиа ТОЛЬКО на ТЕСТОВОМ сервере:
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ]
