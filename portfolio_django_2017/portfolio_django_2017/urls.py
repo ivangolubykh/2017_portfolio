@@ -31,7 +31,7 @@ urlpatterns = [
         as_view(url='django/profile_ig/')),
 ]
 urlpatterns += [
-    # url(starturl, include('app_main.urls')),
+    url(starturl, include('app_main.urls')),
 ]
 
 

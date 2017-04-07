@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ru">
+<head>
+	<title>{% block title %}{% endblock %} - Портфолио Ивана Голубых, Django/Python программиста.</title>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'general/favicon/favicon-16x16.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'general/favicon/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="96x96" href="{% static 'general/favicon/favicon-64x64.png' %}">
+	<link rel="stylesheet" href="{% static 'general/style/reset.css' %}">
+	<link rel="stylesheet" href="{% static 'general/style/style.css' %}">
+
+</head>
+<body>
+<div class="overfooter">
+	<header>
+	</header>
+	<article>
+		{% block content  %}
+		{% endblock %}
+	</article>
+</div>
+<footer>
+	<div></div><!--
+	--><p>Copyright © 2016, <a href="http://allworld.xyz/django/profile_ig/">Иван Борисович Голубых</a></p>
+	<p>&copy;Все права защищены 2017</p>
+</footer>
+
+</body>
+</html>
