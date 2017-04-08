@@ -1,7 +1,6 @@
 # from django.shortcuts import render
 from django.views.generic.list import ListView
-from .models import MainHeader1Text, MainHeader2Text, MainHeader3Text,\
-    MainHeader4Text, MainText
+from .models import MainHeader1Text
 
 
 # Главная страница:
@@ -14,4 +13,4 @@ class MainListView(ListView):
                          'mainheader4text_set',
                          'mainheader2text_set__mainheader3text_set__'
                          'mainheader4text_set__maintext_set')
-    template_name = 'admin.html'
+    template_name = 'index.html'

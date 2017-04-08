@@ -2,8 +2,12 @@
 
 {% block title %}Админка{% endblock %}
 {% block content  %}
+    <br><a href="{% url 'main' %}">Сайт</a>
+    <br><a href="{% url 'admin-add_h1' %}">Добавить заголовок H1</a>
+    <br>
     <h1>Временная страница админки. Доступна только в режиме отладки для наполнения БД.</h1>
+    <br>
     {% for h1 in object_list %}
-        Test={{h1}}
+        <p>{{h1.ordinal}} - {{h1.text}}</p>
     {% endfor %}
 {% endblock %}
