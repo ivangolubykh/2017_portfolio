@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Админка{% endblock %}
+{% block content  %}
+    <br><a href="{% url 'main' %}">Сайт</a>
+    <br><a href="{% url 'admin' %}">Тексты страницы Примеров работ на Python/Django здесь.</a>
+    <br><a href="{% url 'admin' %}">Тексты страницы Примеров работ на JavaScript здесь.</a>
+    <br><a href="{% url 'admin' %}">Тексты страницы Примеров работ на Html5/Css здесь.</a>
+    <br><a href="{% url 'admin' %}">Тексты страницы Учебы здесь.</a>
+    <br><a href="{% url 'admin' %}">Тексты страницы Работы здесь.</a>
+    <br><a href="{% url 'admin' %}">Тексты страницы Контактов здесь.</a>
+
+    <br><a href="{% url 'admin_main-add_h1' %}">Добавить заголовок H1</a>
+    <br><a href="{% url 'admin_main-add_h2' %}">Добавить заголовок H2</a>
+    <br><a href="{% url 'admin_main-add_h3' %}">Добавить заголовок H3</a>
+    <br><a href="{% url 'admin_main-add_h4' %}">Добавить заголовок H4</a>
+    <br><a href="{% url 'admin_main-add_text' %}">Добавить текст абзаца</a>
+    <br>
+    <h1>Временная страница админки. Доступна только в режиме отладки для наполнения БД.</h1>
+    <p>Тексты главной страницы сайта здесь:</p>
+    <br>
+    {% for h1 in object_list %}
+<p><a href="{% url 'admin_main-del_h1' h1.id%}">del</a> {{h1.ordinal}} - <a href="{% url 'admin_main-update_h1' h1.id%}">{{h1.text}}</a></p>
+        {% for h2 in h1.mainheader2text_set.all %}
+            <p>&nbsp;<a href="{% url 'admin_main-del_h2' h2.id%}">del</a> {{h2.ordinal}} - {{h2.text}}</p>
+            {% for h3 in h2.mainheader3text_set.all %}
+                <p>&nbsp;&nbsp;<a href="{% url 'admin_main-del_h3' h3.id%}">del</a> {{h3.ordinal}} - {{h3.text}}</p>
+                {% for h4 in h3.mainheader4text_set.all %}
+                    <p>&nbsp;&nbsp;&nbsp;<a href="{% url 'admin_main-del_h4' h4.id%}">del</a> {{h4.ordinal}} - {{h4.text}}</p>
+                    {% for text in h4.maintext_set.all %}
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'admin_main-del_text' text.id%}">del</a> {{text.ordinal}} - {{text.text}}</p>
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

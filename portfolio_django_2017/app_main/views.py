@@ -1,7 +1,6 @@
 # from django.shortcuts import render
 from django.views.generic.list import ListView
-from .models import MainHeader1Text, MainHeader2Text, MainHeader3Text,\
-    MainHeader4Text, MainText
+from .models import MainHeader1Text
 
 
 # Главная страница:

@@ -41,6 +41,12 @@ INSTALLED_APPS = [
     'app_main',
 ]
 
+# Админка будет только в режиме отладки:
+if DEBUG:
+    INSTALLED_APPS += [
+        'app_admin_debug',
+    ]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -165,7 +171,6 @@ LOGGING = {
 
 # Подключаю панель отладки
 if DEBUG:
-    pass
     # автозапуск модуля панельки:
     MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
     # включение панельки в список установленых приложений:
