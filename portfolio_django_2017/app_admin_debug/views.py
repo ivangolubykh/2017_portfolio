@@ -21,33 +21,58 @@ class AdminListView(ListView):
 class H1Create(CreateView):
     model = MainHeader1Text
     fields = ['ordinal', 'text']
-    template_name = 'admin_create.html'
-    succes_url = reverse_lazy('admin')
+    template_name = 'admin_main_create.html'
 
 
 class H2Create(CreateView):
     model = MainHeader2Text
     fields = ['ordinal', 'text', 'up']
-    template_name = 'admin_create.html'
-    succes_url = reverse_lazy('admin')
+    template_name = 'admin_main_create.html'
 
 
 class H3Create(CreateView):
     model = MainHeader3Text
     fields = ['ordinal', 'text', 'up']
-    template_name = 'admin_create.html'
-    succes_url = reverse_lazy('admin')
+    template_name = 'admin_main_create.html'
 
 
 class H4Create(CreateView):
     model = MainHeader4Text
     fields = ['ordinal', 'text', 'up']
-    template_name = 'admin_create.html'
-    succes_url = reverse_lazy('admin')
+    template_name = 'admin_main_create.html'
 
 
 class TextCreate(CreateView):
     model = MainText
     fields = ['ordinal', 'text', 'up']
-    template_name = 'admin_create.html'
-    succes_url = reverse_lazy('admin')
+    template_name = 'admin_main_create.html'
+
+
+class H1Delete(DeleteView):
+    model = MainHeader1Text
+    success_url = reverse_lazy('admin')
+    template_name = 'admin_main_delete.html'
+
+
+class H2Delete(DeleteView):
+    model = MainHeader2Text
+    success_url = reverse_lazy('admin')
+    template_name = 'admin_main_delete.html'
+
+
+class H3Delete(DeleteView):
+    model = MainHeader3Text
+    success_url = reverse_lazy('admin')
+    template_name = 'admin_main_delete.html'
+
+
+class H4Delete(DeleteView):
+    model = MainHeader4Text
+    success_url = reverse_lazy('admin')
+    template_name = 'admin_main_delete.html'
+
+
+class TextDelete(DeleteView):
+    model = MainText
+    success_url = reverse_lazy('admin')
+    template_name = 'admin_main_delete.html'
