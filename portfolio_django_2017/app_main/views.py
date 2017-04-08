@@ -9,9 +9,9 @@ class MainListView(ListView):
     # model = MainText
     queryset = MainHeader1Text.objects.order_by('ordinal').\
         prefetch_related('mainheader2text_set',
-                         'mainheader2text_set.mainheader3text_set',
-                         'mainheader2text_set.mainheader3text_set.'
+                         'mainheader2text_set__mainheader3text_set',
+                         'mainheader2text_set__mainheader3text_set__'
                          'mainheader4text_set',
-                         'mainheader2text_set.mainheader3text_set.'
-                         'mainheader4text_set.maintext_set')
+                         'mainheader2text_set__mainheader3text_set__'
+                         'mainheader4text_set__maintext_set')
     template_name = 'index.html'
