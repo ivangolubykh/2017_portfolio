@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from .views import AdminListView, H1Create, H2Create, H3Create, H4Create, \
-    TextCreate, H1Delete, H2Delete, H3Delete, H4Delete, TextDelete
+    TextCreate, H1Delete, H2Delete, H3Delete, H4Delete, TextDelete, H1Update,\
+    H2Update, H3Update, H4Update, TextUpdate
 
 
 urlpatterns = [
@@ -36,4 +37,14 @@ urlpatterns = [
         name='admin_main-del_h4'),
     url(r'admin/del_main_text/(?P<pk>[\w]+)/$', TextDelete.as_view(),
         name='admin_main-del_text'),
+    url(r'admin/update_main_h1/(?P<pk>[\w]+)/$', H1Update.as_view(),
+        name='admin_main-update_h1'),
+    url(r'admin/update_main_h2/(?P<pk>[\w]+)/$', H2Update.as_view(),
+        name='admin_main-update_h2'),
+    url(r'admin/update_main_h3/(?P<pk>[\w]+)/$', H3Update.as_view(),
+        name='admin_main-update_h3'),
+    url(r'admin/update_main_h4/(?P<pk>[\w]+)/$', H4Update.as_view(),
+        name='admin_main-update_h4'),
+    url(r'admin/update_main_text/(?P<pk>[\w]+)/$', TextUpdate.as_view(),
+        name='admin_main-update_text'),
 ]

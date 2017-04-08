@@ -76,3 +76,33 @@ class TextDelete(DeleteView):
     model = MainText
     success_url = reverse_lazy('admin')
     template_name = 'admin_main_delete.html'
+
+
+class H1Update(UpdateView):
+    model = MainHeader1Text
+    template_name = 'admin_main_update.html'
+    fields = ['ordinal', 'text']
+
+
+class H2Update(UpdateView):
+    model = MainHeader2Text
+    template_name = 'admin_main_update.html'
+    fields = ['ordinal', 'text', 'up']
+
+
+class H3Update(UpdateView):
+    model = MainHeader2Text
+    template_name = 'admin_main_update.html'
+    fields = ['ordinal', 'text', 'up']
+
+
+class H4Update(UpdateView):
+    model = MainHeader2Text
+    template_name = 'admin_main_update.html'
+    fields = ['ordinal', 'text', 'up']
+
+
+class TextUpdate(UpdateView):
+    model = MainHeader2Text
+    template_name = 'admin_main_update.html'
+    fields = ['ordinal', 'text', 'up']

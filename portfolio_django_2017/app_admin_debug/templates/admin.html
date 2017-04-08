@@ -20,7 +20,7 @@
     <p>Тексты главной страницы сайта здесь:</p>
     <br>
     {% for h1 in object_list %}
-        <p><a href="{% url 'admin_main-del_h1' h1.id%}">del</a> {{h1.ordinal}} - {{h1.text}}</p>
+<p><a href="{% url 'admin_main-del_h1' h1.id%}">del</a> {{h1.ordinal}} - <a href="{% url 'admin_main-update_h1' h1.id%}">{{h1.text}}</a></p>
         {% for h2 in h1.mainheader2text_set.all %}
             <p>&nbsp;<a href="{% url 'admin_main-del_h2' h2.id%}">del</a> {{h2.ordinal}} - {{h2.text}}</p>
             {% for h3 in h2.mainheader3text_set.all %}
