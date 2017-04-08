@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Админка{% endblock %}
+{% block content  %}
+    <h1>Временная страница админки. Доступна только в режиме отладки для наполнения БД.</h1>
+    {% for h1 in object_list %}
+        Test={{h1}}
+    {% endfor %}
+{% endblock %}
