@@ -39,9 +39,13 @@
 				<li><a href="{% url 'main' %}">Контакты</a></li>
 			</ul>
 		</div>
+		<div class="breadcrumbs">
+			{% block breadcrumbs %}
+			{% endblock %}
+		</div>
 	</header>
 	<article>
-		{% block content  %}
+		{% block content %}
 		{% endblock %}
 	</article>
 </div>

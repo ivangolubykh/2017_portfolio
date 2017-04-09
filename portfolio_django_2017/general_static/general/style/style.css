@@ -122,6 +122,12 @@ footer {
 	}
 
 
+    .content > div {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+
     h1 {
         font-size: 30px
     }
@@ -140,3 +146,27 @@ footer {
 	vertical-align: middle;
 }
 
+article {
+    margin: 45px 0;
+}
+
+.my_foto {
+    border-radius: 50%;
+    box-shadow: 0 0 55px -5px white;
+}
+
+article > div:first-child {
+    float: left;
+    margin: 0 15px 0 0;
+    width: 286px;
+}
+
+article > div:first-child > img {
+    width: 286px;
+}
+
+article > div {
+    display: inline-block;
+    margin: 35px 0 0 0;
+    width: calc(100% - 301px);
+}
