@@ -1,5 +1,42 @@
+/* font-family: "OpenSansRegular"; */
+@font-face {
+    font-family: "OpenSansRegular";
+    src: url("../fonts/OpenSansRegular/OpenSansRegular.eot");
+    src: url("../fonts/OpenSansRegular/OpenSansRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansRegular/OpenSansRegular.woff") format("woff"),
+    url("../fonts/OpenSansRegular/OpenSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansLight"; */
+@font-face {
+    font-family: "OpenSansLight";
+    src: url("../fonts/OpenSansLight/OpenSansLight.eot");
+    src: url("../fonts/OpenSansLight/OpenSansLight.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansLight/OpenSansLight.woff") format("woff"),
+    url("../fonts/OpenSansLight/OpenSansLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansSemiBold"; */
+@font-face {
+    font-family: "OpenSansSemiBold";
+    src: url("../fonts/OpenSansSemiBold/OpenSansSemiBold.eot");
+    src: url("../fonts/OpenSansSemiBold/OpenSansSemiBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansSemiBold/OpenSansSemiBold.woff") format("woff"),
+    url("../fonts/OpenSansSemiBold/OpenSansSemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+* {
+    font-weight: 400;
+    color: inherit;
+}
+
 html, body {
     height: 100%;
+    color: #ffffff;
 }
 
 body {
@@ -19,7 +56,6 @@ body {
     padding-bottom: 133px;
 }
 
-
 footer {
     height: 133px;
     margin-top: -133px;
@@ -28,3 +64,35 @@ footer {
     color: #000;
     font-size: 20px;
 }
+
+
+@media screen and (max-width:320px) {
+/* Display 320px */
+    html {
+        font-family: OpenSansLight;
+    }
+
+}
+
+@media screen and (min-width:321px) and (max-width:480px) {
+/* Display 320px */
+    html {
+        font-family: OpenSansLight;
+    }
+
+}
+
+@media screen and (min-width:481px) {
+/* Display 320px */
+    html {
+        font-family: OpenSansRegular;
+    }
+
+}
+
+
+
+h1 {
+    font-size: 30px
+}
+
