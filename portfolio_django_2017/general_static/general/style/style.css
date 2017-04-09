@@ -128,14 +128,13 @@ footer {
         vertical-align: top;
     }
 
-
     body p, body h1, body h2, body h3, body h4 {
         margin: 35px 2px;
     }
     body h1 {
         font-size: 30px;
     }
-    body p {
+    body p, .puzzle_button > button {
         font-size: 24px;
     }
 }
@@ -175,4 +174,17 @@ body input, body select, body textarea {
 
 p {
     text-indent: 1em;
+}
+
+.puzzle_button{
+    width: 100%;
+    text-align: right;
+}
+.puzzle_button > button {
+    width: 310px;
+    height: 50px;
+    background: #d74141;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 black;
 }
