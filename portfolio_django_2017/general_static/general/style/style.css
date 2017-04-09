@@ -32,6 +32,7 @@
 * {
     font-weight: 400;
     color: inherit;
+    text-decoration: none;
 }
 
 html, body {
@@ -43,10 +44,11 @@ body {
     width: 100%;
     min-width: 320px;
     border: 0px;
-    background-color: #004faa;
+    background-color: #2361b0;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
+    background-image: url(/django/profile_ig/static/general/img/fon-01.jpg)
 }
 
 .overfooter {
@@ -88,11 +90,53 @@ footer {
         font-family: OpenSansRegular;
     }
 
+
+    header {
+        text-align: center; # Чтобы дочернее меню было по центру
+    }
+
+	.navigation {
+	    margin: 39px 0 0 0;
+	}
+    .navigation .small, .navigation .small_menu {
+		position: absolute;
+		max-width: 500px;
+		margin: -1000px;
+	}
+
+	.navigation ul {
+		display: inline-block;
+		padding: 0px;
+		vertical-align: middle;
+	}
+
+	.navigation ul li {
+		padding: 0px 25px;
+		display: inline-block;
+		font-size: 21pt;
+		border-left: solid 2px;
+		height: 34px;
+	}
+	.navigation ul li:first-child {
+		border-left: solid 0px;
+	}
+
+
+    h1 {
+        font-size: 30px
+    }
 }
 
 
+.navigation {
+	display: inline-block;
+	line-height: 1;
+}
 
-h1 {
-    font-size: 30px
+.nothing {
+	display: inline-block;
+	height: 100%;
+	width: 0;
+	vertical-align: middle;
 }
 

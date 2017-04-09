@@ -14,6 +14,31 @@
 <body>
 <div class="overfooter">
 	<header>
+		<div class="navigation">
+			<div class="nothing"></div><!--
+		 --><div class="small">
+				Navigation
+			</div>
+			<div class="small_menu">
+				<label>≡<input type="checkbox" name="">
+					<ul>
+						<li><a href="{% url 'main' %}">Главная</a></li>
+						<li><a href="{% url 'main' %}">Примеры работ</a></li>
+						<li><a href="{% url 'main' %}">Учёбы</a></li>
+						<li><a href="{% url 'main' %}">Работы</a></li>
+						<li><a href="{% url 'main' %}">Контакты</a></li>
+					</ul>
+				</label>
+			</div>
+			<div class="nothing"></div><!--
+		 --><ul>
+				<li><a href="{% url 'main' %}">Главная</a></li>
+				<li><a href="{% url 'main' %}">Примеры работ</a></li>
+				<li><a href="{% url 'main' %}">Учёбы</a></li>
+				<li><a href="{% url 'main' %}">Работы</a></li>
+				<li><a href="{% url 'main' %}">Контакты</a></li>
+			</ul>
+		</div>
 	</header>
 	<article>
 		{% block content  %}
