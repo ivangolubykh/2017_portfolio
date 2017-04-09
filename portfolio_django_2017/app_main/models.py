@@ -46,7 +46,7 @@ class MainHeader1Text(models.Model):
                             )
 
     def __str__(self):
-        return self.text
+        return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
         return reverse('admin')
@@ -98,7 +98,7 @@ class MainHeader2Text(models.Model):
                            )
 
     def __str__(self):
-        return self.text
+        return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
         return reverse('admin')
@@ -150,7 +150,7 @@ class MainHeader3Text(models.Model):
                            )
 
     def __str__(self):
-        return self.text
+        return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
         return reverse('admin')
@@ -202,7 +202,7 @@ class MainHeader4Text(models.Model):
                            )
 
     def __str__(self):
-        return self.text
+        return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
         return reverse('admin')
@@ -254,7 +254,7 @@ class MainText(models.Model):
                            )
 
     def __str__(self):
-        return self.text
+        return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
         return reverse('admin')

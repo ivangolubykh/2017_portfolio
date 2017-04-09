@@ -48,6 +48,7 @@ body {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
+    text-align: justify;
     background-image: url(/django/profile_ig/static/general/img/fon-01.jpg)
 }
 
@@ -128,8 +129,14 @@ footer {
     }
 
 
-    h1 {
-        font-size: 30px
+    body p, body h1, body h2, body h3, body h4 {
+        margin: 35px 2px;
+    }
+    body h1 {
+        font-size: 30px;
+    }
+    body p {
+        font-size: 24px;
     }
 }
 
@@ -150,23 +157,22 @@ article {
     margin: 45px 0;
 }
 
-.my_foto {
+.my_foto > img {
     border-radius: 50%;
     box-shadow: 0 0 55px -5px white;
+    width: 286px;
 }
 
-article > div:first-child {
+.my_foto {
     float: left;
     margin: 0 15px 0 0;
     width: 286px;
 }
 
-article > div:first-child > img {
-    width: 286px;
+body input, body select, body textarea {
+    color: black;
 }
 
-article > div {
-    display: inline-block;
-    margin: 35px 0 0 0;
-    width: calc(100% - 301px);
+p {
+    text-indent: 1em;
 }

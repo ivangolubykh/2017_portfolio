@@ -91,18 +91,18 @@ class H2Update(UpdateView):
 
 
 class H3Update(UpdateView):
-    model = MainHeader2Text
+    model = MainHeader3Text
     template_name = 'admin_main_update.html'
     fields = ['ordinal', 'text', 'up']
 
 
 class H4Update(UpdateView):
-    model = MainHeader2Text
+    model = MainHeader4Text
     template_name = 'admin_main_update.html'
     fields = ['ordinal', 'text', 'up']
 
 
 class TextUpdate(UpdateView):
-    model = MainHeader2Text
+    model = MainText
     template_name = 'admin_main_update.html'
     fields = ['ordinal', 'text', 'up']
