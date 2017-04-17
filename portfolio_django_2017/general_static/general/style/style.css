@@ -67,6 +67,9 @@ footer {
     text-align: center;
     color: #000;
     font-size: 20px;
+    /* Чтобы текст в футере выделялся (z-index и position):*/
+    z-index: 1;
+    position: relative;
 }
 
 
@@ -79,7 +82,7 @@ footer {
 }
 
 @media screen and (min-width:321px) and (max-width:480px) {
-/* Display 320px */
+/* Display 321-480px */
     html {
         font-family: OpenSansLight;
     }
@@ -87,7 +90,7 @@ footer {
 }
 
 @media screen and (min-width:481px) {
-/* Display 320px */
+/* Display >480px */
     html {
         font-family: OpenSansRegular;
     }
@@ -221,10 +224,6 @@ p {
     vertical-align: middle;
 }
 
-footer p {
-    margin: 0 0;
-}
-
 .scroll_up_window {
     position: absolute; /* фиксированная позиция */
     right: 0px;
@@ -238,6 +237,7 @@ footer p {
     width: 55px;
     margin: 0;
     text-align: center;
+    display: none;
 }
 .triangle {
     display: inline-block;
@@ -246,4 +246,34 @@ footer p {
     border: 15px solid transparent; /* Прозрачные границы */
     border-top: 0px;
     border-bottom: 25px solid white; /* Добавляем треугольник */
+}
+
+.footer_contact {
+    height: 45px;
+}
+.box_block {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin: 0 15px;
+}
+.box_block img{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+.footer_name {
+    height: 45px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    text-decoration: underline;
+}
+.footer_license {
+    height: 43px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
 }
