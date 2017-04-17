@@ -53,6 +53,7 @@ body {
 }
 
 .overfooter {
+    position: relative;
     max-width: 1280px;
     margin: 0 auto;
     min-height: calc(100% - 133px);
@@ -153,7 +154,7 @@ footer {
 }
 
 article {
-    margin: 45px 0;
+    margin: 45px 0 75px 0;
 }
 
 .my_foto > img {
@@ -222,4 +223,27 @@ p {
 
 footer p {
     margin: 0 0;
+}
+
+.scroll_up_window {
+    position: absolute; /* фиксированная позиция */
+    right: 0px;
+    bottom: 0px;
+    width: 55px;
+    height: 100%;
+}
+.scroll_up_button {
+    position: fixed; /* фиксированная позиция */
+    bottom: 140px;
+    width: 55px;
+    margin: 0;
+    text-align: center;
+}
+.triangle {
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border: 15px solid transparent; /* Прозрачные границы */
+    border-top: 0px;
+    border-bottom: 25px solid white; /* Добавляем треугольник */
 }
