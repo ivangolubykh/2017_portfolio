@@ -2,6 +2,8 @@
 from django.views.generic.list import ListView
 from .models import MainHeader1Text
 import requests
+from django.http import JsonResponse
+from portfolio_django_2017.settings import STATIC_URL
 
 
 # Главная страница:
@@ -17,6 +19,16 @@ class MainListView(ListView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # создаю сессию для подрузки данных Ajax-ом только для своих
+        # посетителей:
+        self.request.session['session_exist'] = True
+        return context
+
+
+def weather_json(request):
+    content = {}
+    if 'session_exist' in request.session:
         try:
             url = 'http://api.wunderground.com//api/d3de2d8a8d6e227e/' \
                   'geolookup/conditions/forecast/lang:RU/q/Russia/' \
@@ -26,11 +38,16 @@ class MainListView(ListView):
             image = image.replace('http://', 'https://')
             temperature = response.json()["current_observation"]["temp_c"]
             text = response.json()["current_observation"]["weather"]
+            content['weather_image'] = image
+            content['weather_temperature'] = temperature
+            content['weather_text'] = text
         except Exception as err:
-            text = 'Получить погоду не удалось: '  # + err
-
-        context = super().get_context_data(**kwargs)
-        context['weather_image'] = image
-        context['weather_temperature'] = temperature
-        context['weather_text'] = text
-        return context
+            content['weather_text'] = 'Получить погоду не удалось: '  # + err
+            content['weather_image'] = STATIC_URL + 'general/img/empty.gif'
+            content['weather_temperature'] = ''
+        return JsonResponse(content)
+    content['weather_image'] = ''
+    content['weather_temperature'] = ''
+    content['weather_text'] = 'Данные взяты с сайта allworld.xyz и' \
+                              ' предназначены только для его посетителей.'
+    return JsonResponse(content)

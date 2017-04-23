@@ -39,12 +39,21 @@
         <button>Получить загадку</button>
     </div>
     <div class="weather">
-        <img class="rainfall" src="{{ weather_image }}">
+        <img id="weather_img" class="rainfall" src="{% static 'general/img/empty.gif' %}">
         <img class="weather_logo" src="{% static 'general/img/wundergroundLogo_4c_horz.jpg' %}">
         <div class="nothing"></div><!--
      --><div class="weather_text">
             Погода в Санкт-Петербурге сейчас:
-            <br>{{ weather_temperature }}&deg;C, {{ weather_text|lower }}
+            <br><span id="weather_temperature">вычисляется..., </span>&deg;C,
+            <span id="weather_text">...</span>
         </div>
     </div>
+{% endblock %}
+
+{% block EndJScript %}
+	<script src="{% static 'app_main/js/main_page.js' %}"></script>
+    <script>
+        var get_weather_url = '{% url 'weather_json' %}'
+        get_weather();
+    </script>
 {% endblock %}
