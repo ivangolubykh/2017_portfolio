@@ -14,3 +14,8 @@ class MainListView(ListView):
                          'mainheader2text_set__mainheader3text_set__'
                          'mainheader4text_set__maintext_set')
     template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['weather_text'] = 'Тут будет реальная погода!!!'
+        return context

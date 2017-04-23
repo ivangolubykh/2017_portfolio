@@ -132,6 +132,10 @@ footer {
         vertical-align: top;
     }
 
+    .text_page {
+        min-height: 300px;
+    }
+
     body p, body h1, body h2, body h3, body h4 {
         margin: 35px 2px;
     }
@@ -164,6 +168,7 @@ article {
     border-radius: 50%;
     box-shadow: 0 0 55px -5px white;
     width: 286px;
+    height: 286px;
 }
 
 .my_foto {

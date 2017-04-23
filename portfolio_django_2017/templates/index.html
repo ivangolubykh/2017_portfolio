@@ -8,32 +8,33 @@
     <div class="my_foto">
         <img src="{% static 'general/img/my_foto_winter.jpg' %}">
     </div>
-    {% for h1 in object_list %}
-        {% if h1.text %}
-            <h1>{{ h1.text|safe }}</h1>
-        {% endif %}
-        {% for h2 in h1.mainheader2text_set.all|dictsort:"ordinal" %}
-            {% if h2.text|safe %}
-                <h2>{{ h2.text }}</h2>
+    <div class="text_page">
+        {% for h1 in object_list %}
+            {% if h1.text %}
+                <h1>{{ h1.text|safe }}</h1>
             {% endif %}
-            {% for h3 in h2.mainheader3text_set.all|dictsort:"ordinal" %}
-                {% if h3.text|safe %}
-                    <h3>{{ h3.text }}</h3>
+            {% for h2 in h1.mainheader2text_set.all|dictsort:"ordinal" %}
+                {% if h2.text|safe %}
+                    <h2>{{ h2.text }}</h2>
                 {% endif %}
-                {% for h4 in h3.mainheader4text_set.all|dictsort:"ordinal" %}
-                    {% if h4.text|safe %}
-                        <h4>{{ h4.text }}</h4>
+                {% for h3 in h2.mainheader3text_set.all|dictsort:"ordinal" %}
+                    {% if h3.text|safe %}
+                        <h3>{{ h3.text }}</h3>
                     {% endif %}
-                    {% for text in h4.maintext_set.all|dictsort:"ordinal" %}
-                        {% if text.text %}
-                            <p>{{ text.text|safe }}</p>
+                    {% for h4 in h3.mainheader4text_set.all|dictsort:"ordinal" %}
+                        {% if h4.text|safe %}
+                            <h4>{{ h4.text }}</h4>
                         {% endif %}
+                        {% for text in h4.maintext_set.all|dictsort:"ordinal" %}
+                            {% if text.text %}
+                                <p>{{ text.text|safe }}</p>
+                            {% endif %}
+                        {% endfor %}
                     {% endfor %}
                 {% endfor %}
             {% endfor %}
         {% endfor %}
-    {% endfor %}
-
+    </div>
     <div class="puzzle_button">
         <button>Получить загадку</button>
     </div>
@@ -43,6 +44,11 @@
         <div class="nothing"></div><!--
      --><div class="weather_text">
             Погода в Санкт-Петербурге сейчас:
+
+
+            <br>{{weather_text}}
+
+
             <br>__+15, Солнечно__
         </div>
     </div>
