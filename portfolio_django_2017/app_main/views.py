@@ -23,10 +23,11 @@ class MainListView(ListView):
                   'Saint Petersburg.json'
             response = requests.get(url)
             image = response.json()["current_observation"]["icon_url"]
+            image = image.replace('http://', 'https://')
             temperature = response.json()["current_observation"]["temp_c"]
             text = response.json()["current_observation"]["weather"]
         except Exception as err:
-            text = 'Получить погоду не удалось: ' + err
+            text = 'Получить погоду не удалось: '  # + err
 
         context = super().get_context_data(**kwargs)
         context['weather_image'] = image
