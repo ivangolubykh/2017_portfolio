@@ -1,6 +1,7 @@
 # from django.shortcuts import render
 from django.views.generic.list import ListView
 from .models import MainHeader1Text
+import requests
 import http.client
 
 
@@ -18,18 +19,15 @@ class MainListView(ListView):
 
     def get_context_data(self, **kwargs):
         try:
-            weather_server = 'api.wunderground.com'
-            weather_page = '/api/d3de2d8a8d6e227e/geolookup/conditions/' \
-                           'forecast/lang:RU/q/Russia/Saint%20Petersburg.json'
-            conn = http.client.HTTPSConnection(weather_server, timeout=25)
-            conn.request("GET", weather_page)
-            obj_conn = conn.getresponse()
-            text = obj_conn.read()
-            conn.close()
+            url = 'http://api.wunderground.com//api/d3de2d8a8d6e227e/' \
+                  'geolookup/conditions/forecast/lang:RU/q/Russia/' \
+                  'Saint Petersburg.json'
+            response = requests.get(url)
+            text = response.json()["response"]["version"]
         except Exception as err:
             text = 'Получить погоду не удалось: '  # + err
 
         context = super().get_context_data(**kwargs)
         context['weather_text'] = 'Тут будет реальная погода!!! - '\
-                                  + str(text)
+                                  + text
         return context
