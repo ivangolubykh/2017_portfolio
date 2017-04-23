@@ -1,10 +1,11 @@
 # from django.shortcuts import render
 from django.views.generic.list import ListView
-from .models import MainHeader1Text
+from .models import MainHeader1Text, Weather_For_Json
 import requests
 from django.http import JsonResponse
 from portfolio_django_2017.settings import STATIC_URL
 from django.db import transaction
+from django.utils import timezone
 
 
 # Главная страница:
@@ -28,28 +29,54 @@ class MainListView(ListView):
 
 
 def weather_json(request):
-    with transaction.atomic():
-        # This code executes inside a transaction.
-        pass
-
+    # Буду обновлять БД не чаще 1 раза в 15 минут (900 секунд):
+    TIME_DELTA_TO_UPDATE_WEATHER = 900
     content = {}
     if 'session_exist' in request.session:
-        try:
-            url = 'http://api.wunderground.com//api/d3de2d8a8d6e227e/' \
-                  'geolookup/conditions/forecast/lang:RU/q/Russia/' \
-                  'Saint Petersburg.json'
-            response = requests.get(url)
-            image = response.json()["current_observation"]["icon_url"]
-            image = image.replace('http://', 'https://')
-            temperature = response.json()["current_observation"]["temp_c"]
-            text = response.json()["current_observation"]["weather"]
-            content['weather_image'] = image
-            content['weather_temperature'] = temperature
-            content['weather_text'] = text
-        except Exception as err:
-            content['weather_image'] = STATIC_URL + 'general/img/empty.gif'
-            content['weather_temperature'] = ''
-            content['weather_text'] = 'Получить погоду не удалось: '  # + err
+        with transaction.atomic():
+            # Начинаю транзакцию для избежания одновременного запроса данных
+            # погоды несколькими посетителями:
+            try:
+                weather = Weather_For_Json.objects.get(pk=1)
+            except Weather_For_Json.DoesNotExist:
+                weather = Weather_For_Json(pk=1, image='', temperature='',
+                                           text='')
+                weather.save()
+
+            old_time = weather.datetime + timezone.timedelta(
+                seconds=TIME_DELTA_TO_UPDATE_WEATHER)
+            current_time = timezone.now()
+            if old_time < current_time:
+                # Пора обновить данные в БД
+                try:
+                    url = 'http://api.wunderground.com//api/' \
+                          'd3de2d8a8d6e227e/geolookup/conditions/forecast/' \
+                          'lang:RU/q/Russia/Saint Petersburg.json'
+                    response = requests.get(url)
+                    image = response.json()["current_observation"]["icon_url"]
+                    image = image.replace('http://', 'https://')
+                    temperature = response. \
+                        json()["current_observation"]["temp_c"]
+                    text = response.json()["current_observation"]["weather"]
+                    weather = Weather_For_Json(pk=1, image=image,
+                                               temperature=temperature,
+                                               text=text)
+                    weather.save()
+                    content['weather_image'] = image
+                    content['weather_temperature'] = temperature
+                    content['weather_text'] = text
+                except Exception as err:
+                    content['weather_image'] = STATIC_URL +\
+                                               'general/img/empty.gif'
+                    content['weather_temperature'] = ''
+                    content['weather_text'] = 'Получить погоду' \
+                                              ' не удалось: '  # + err
+            else:
+                # Беру старые данные из БД
+                weather = Weather_For_Json.objects.get(pk=1)
+                content['weather_image'] = weather.image
+                content['weather_temperature'] = weather.temperature
+                content['weather_text'] = weather.text
         return JsonResponse(content)
     content['weather_image'] = ''
     content['weather_temperature'] = ''
