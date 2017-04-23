@@ -6,7 +6,7 @@
 # Применение изменений в БД:
 #./manage.py makemigrations app_main
 ##./manage.py migrate app_main
-#./manage.py migrate/manage.py migrate
+#./manage.py migrate
 
 # Сохранение БД приложения indexapp в формате JSON с отступами 2 пробела:
 #mkdir ./indexapp/fixtures

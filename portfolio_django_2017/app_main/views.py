@@ -4,6 +4,7 @@ from .models import MainHeader1Text
 import requests
 from django.http import JsonResponse
 from portfolio_django_2017.settings import STATIC_URL
+from django.db import transaction
 
 
 # Главная страница:
@@ -27,6 +28,10 @@ class MainListView(ListView):
 
 
 def weather_json(request):
+    with transaction.atomic():
+        # This code executes inside a transaction.
+        pass
+
     content = {}
     if 'session_exist' in request.session:
         try:
@@ -42,9 +47,9 @@ def weather_json(request):
             content['weather_temperature'] = temperature
             content['weather_text'] = text
         except Exception as err:
-            content['weather_text'] = 'Получить погоду не удалось: '  # + err
             content['weather_image'] = STATIC_URL + 'general/img/empty.gif'
             content['weather_temperature'] = ''
+            content['weather_text'] = 'Получить погоду не удалось: '  # + err
         return JsonResponse(content)
     content['weather_image'] = ''
     content['weather_temperature'] = ''
