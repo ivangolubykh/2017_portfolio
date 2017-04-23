@@ -39,17 +39,12 @@
         <button>Получить загадку</button>
     </div>
     <div class="weather">
-        <img class="rainfall" src="{% static 'general/img/my_foto_winter.jpg' %}">
+        <img class="rainfall" src="{{ weather_image }}">
         <img class="weather_logo" src="{% static 'general/img/wundergroundLogo_4c_horz.jpg' %}">
         <div class="nothing"></div><!--
      --><div class="weather_text">
             Погода в Санкт-Петербурге сейчас:
-
-
-            <br>{{weather_text}}
-
-
-            <br>__+15, Солнечно__
+            <br>{{ weather_temperature }}&deg;C, {{ weather_text|lower }}
         </div>
     </div>
 {% endblock %}

@@ -2,7 +2,6 @@
 from django.views.generic.list import ListView
 from .models import MainHeader1Text
 import requests
-import http.client
 
 
 # Главная страница:
@@ -23,11 +22,14 @@ class MainListView(ListView):
                   'geolookup/conditions/forecast/lang:RU/q/Russia/' \
                   'Saint Petersburg.json'
             response = requests.get(url)
-            text = response.json()["response"]["version"]
+            image = response.json()["current_observation"]["icon_url"]
+            temperature = response.json()["current_observation"]["temp_c"]
+            text = response.json()["current_observation"]["weather"]
         except Exception as err:
-            text = 'Получить погоду не удалось: '  # + err
+            text = 'Получить погоду не удалось: ' + err
 
         context = super().get_context_data(**kwargs)
-        context['weather_text'] = 'Тут будет реальная погода!!! - '\
-                                  + text
+        context['weather_image'] = image
+        context['weather_temperature'] = temperature
+        context['weather_text'] = text
         return context
