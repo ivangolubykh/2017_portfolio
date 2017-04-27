@@ -243,6 +243,7 @@ p {
     margin: 0;
     text-align: center;
     display: none;
+    z-index: 1;
 }
 .triangle {
     display: inline-block;
