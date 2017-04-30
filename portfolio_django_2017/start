@@ -8,7 +8,8 @@
 ##./manage.py migrate app_main
 #./manage.py migrate
 
-# Сохранение БД приложения indexapp в формате JSON с отступами 2 пробела:
+# Сохранение БД приложения (фикстуры) app_main в формате JSON с отступами
+# 2 пробела:
 #mkdir ./indexapp/fixtures
 #./manage.py dumpdata app_main --indent 2 > ./app_main/fixtures/startdata.json
 

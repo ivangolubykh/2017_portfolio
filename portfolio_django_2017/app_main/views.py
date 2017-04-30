@@ -24,7 +24,8 @@ class MainListView(ListView):
         context = super().get_context_data(**kwargs)
         # создаю сессию для подрузки данных Ajax-ом только для своих
         # посетителей:
-        if not self.request.session['session_exist']:
+        if 'session_exist' not in self.request.session or\
+                not self.request.session['session_exist']:
             self.request.session['session_exist'] = True
         return context
 
@@ -33,7 +34,7 @@ def weather_json(request):
     # Буду обновлять БД не чаще 1 раза в 15 минут (900 секунд):
     TIME_DELTA_TO_UPDATE_WEATHER = 900
     content = {}
-    if request.session['session_exist']:
+    if 'session_exist' in request.session and request.session['session_exist']:
         with transaction.atomic():
             # Начинаю транзакцию для избежания одновременного запроса данных
             # погоды несколькими посетителями:
