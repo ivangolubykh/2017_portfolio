@@ -2,8 +2,9 @@
 {% load staticfiles %}
 <html lang="ru">
 <head>
-	<title>{% block title %}{% endblock %} - Портфолио Ивана Голубых, Django/Python программиста.</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	<title>{% block title %}{% endblock %} - Портфолио Ивана Голубых, Django/Python программиста.</title>
 	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'general/favicon/favicon-16x16.png' %}">
 	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'general/favicon/favicon-32x32.png' %}">
 	<link rel="icon" type="image/png" sizes="96x96" href="{% static 'general/favicon/favicon-64x64.png' %}">
@@ -18,20 +19,21 @@
 	</style>
 </head>
 <body>
-<div class="scroll_up_window">
-	<div class="scroll_up_button">
-		<a href="#"><strong class="triangle"></strong><br><strong>вверх</strong></a>
-	</div>
-</div>
 <div class="overfooter">
+	<div class="scroll_up_window">
+		<div class="scroll_up_button">
+			<a href="#"><strong class="triangle"></strong><br><strong>вверх</strong></a>
+		</div>
+	</div>
 	<header>
 		<div class="navigation">
 			<div class="nothing"></div><!--
 		 --><div class="small">
-				Navigation
+				Крошки -> хлебные -> будут
 			</div>
 			<div class="small_menu">
-				<label>≡<input type="checkbox" name="">
+				<label><input type="checkbox" name="">
+					<div class="hamburger"></div>
 					<ul>
 						<li><a href="{% url 'main' %}">Главная</a></li>
 						<li><a href="{% url 'main' %}">Примеры работ</a></li>

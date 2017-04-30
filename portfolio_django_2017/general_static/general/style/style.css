@@ -56,7 +56,7 @@ body {
     max-width: 1280px;
     margin: 0 auto;
     min-height: calc(100% - 133px);
-    padding-bottom: 133px;
+    padding: 0px 20px 133px 20px;
 }
 
 footer {
@@ -72,58 +72,144 @@ footer {
 }
 
 
-@media screen and (max-width:320px) {
-/* Display 320px */
+@media screen and (max-width: 480px) {
+/* Display 320px AND 480px*/
     html {
         font-family: OpenSansLight;
+    }
+    .navigation {
+        margin: 10px 0 0 0;
+        width: 100%;
+        font-size: 14px;
+    }
+    .navigation .small {
+        float: left;
+    }
+    .navigation .small_menu {
+        float: right;
+    }
+    .small_menu ul {
+        position: absolute;
+        margin: -1000px;
+        max-width: 500px;
+        -moz-transform: scale(0, 0) rotate(90deg); /* Для Firefox */
+        -ms-transform: scale(0, 0) rotate(90deg); /* Для IE */
+        -webkit-transform: scale(0, 0) rotate(90deg); /* Для Safari, Chrome, iOS */
+        -o-transform: scale(0, 0) rotate(90deg); /* Для Opera */
+        transform: scale(0, 0) rotate(90deg);
+        -webkit-transition: transform 0.9s;
+        -moz-transition: transform 0.9s;
+        -o-transition: transform 0.9s;
+        transition: transform 0.9s;
+        transition: transform 0.9s;
+    }
+    .small_menu label input {
+        position: absolute;
+        max-width: 500px;
+        margin: -1000px;
+    }
+    .small_menu label input + .hamburger {
+        width: 17px;
+        height: 14px;
+        background:linear-gradient(to bottom, #fff 0%, #fff 20%,
+          transparent 20%, transparent 40%, #fff 40%, #fff 60%,
+          transparent 60%, transparent 80%, #fff 80%, #fff 100%);
+
+    }
+    .small_menu label input:checked + .hamburger {
+        width: 17px;
+        height: 14px;
+        background:linear-gradient(45deg, transparent 0%, transparent 40%,
+          red 40%, red 60%, transparent 60%, transparent 100%),
+                   linear-gradient(-45deg, transparent 0%, transparent 40%,
+          red 40%, red 60%, transparent 60%, transparent 100%);
+    }
+    .small_menu label input:checked + .hamburger + ul {
+        display: block;
+        position: absolute;
+        z-index: 2;
+        color: black;
+        font-size: 18px;
+        padding: 4px;
+        background: #fff;
+        text-align: left;
+        width: 146px;
+        margin-top: 5px;
+        border-radius: 10px;
+        margin-left: -140px;
+        -moz-transform: scale(1, 1) rotate(0deg); /* Для Firefox */
+        -ms-transform: scale(1, 1) rotate(0deg); /* Для IE */
+        -webkit-transform: scale(1, 1) rotate(0deg); /* Для Safari, Chrome, iOS */
+        -o-transform: scale(1, 1) rotate(0deg); /* Для Opera */
+        transform: scale(1, 1) rotate(0deg);
+
+    }
+    .small_menu label input:checked + .hamburger + ul li {
+        border-top: solid 1px;
+        border-color: #808080;
+    }
+    .small_menu label input:checked + .hamburger + ul li:first-child {
+        border-top: solid 0px;
+    }
+
+    .navigation > ul {
+        position: absolute;
+        max-width: 500px;
+        margin: -1000px;
     }
 
 }
 
-@media screen and (min-width:321px) and (max-width:480px) {
-/* Display 321-480px */
-    html {
-        font-family: OpenSansLight;
-    }
+
+@media screen and (max-width: 320px) {
+/* Display 320px only */
+
 
 }
 
-@media screen and (min-width:481px) {
+@media screen and (min-width: 321px) and (max-width: 480px) {
+/* Display 321-480px only */
+
+
+}
+
+@media screen and (min-width: 481px) {
 /* Display >480px */
     html {
         font-family: OpenSansRegular;
     }
 
-
     header {
-        text-align: center; # Чтобы дочернее меню было по центру
+        text-align: center; /* Чтобы дочернее меню было по центру */
     }
 
-	.navigation {
-	    margin: 39px 0 0 0;
-	}
+    .navigation {
+        margin: 39px 0 0 0;
+    }
     .navigation .small, .navigation .small_menu {
-		position: absolute;
-		max-width: 500px;
-		margin: -1000px;
-	}
+        position: absolute;
+        max-width: 500px;
+        margin: -1000px;
+    }
+    .navigation ul {
+        display: inline-block;
+        padding: 0px;
+        vertical-align: middle;
+    }
+    .navigation ul li {
+        padding: 0px 25px;
+        display: inline-block;
+        font-size: 21px;
+        border-left: solid 2px;
+        height: 34px;
+    }
+    .navigation ul li:first-child {
+        border-left: solid 0px;
+    }
 
-	.navigation ul {
-		display: inline-block;
-		padding: 0px;
-		vertical-align: middle;
-	}
 
-	.navigation ul li {
-		padding: 0px 25px;
-		display: inline-block;
-		font-size: 21pt;
-		border-left: solid 2px;
-		height: 34px;
-	}
-	.navigation ul li:first-child {
-		border-left: solid 0px;
-	}
+
+
 
 
     .content > div {
@@ -144,7 +230,19 @@ footer {
     body p, .puzzle_button > button {
         font-size: 24px;
     }
+
+
 }
+
+
+
+
+
+
+
+
+
+
 
 
 .navigation {
@@ -230,8 +328,9 @@ p {
 
 .scroll_up_window {
     position: absolute; /* фиксированная позиция */
-    right: 0px;
+    right: 20px;
     bottom: 0px;
+    top: 100px;
     width: 55px;
     height: 100%;
 }
@@ -281,4 +380,5 @@ p {
     display: inline-block;
     vertical-align: middle;
     margin: 0;
+    font-size: 18px;
 }
