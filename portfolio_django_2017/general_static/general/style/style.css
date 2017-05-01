@@ -114,8 +114,11 @@ footer {
         width: 100%;
         font-size: 14px;
     }
-    .navigation .small {
-        float: left;
+    body .large_scrin_view {
+        display: none;
+        position: absolute;
+        margin-left: -1000px;
+        max-width: 500px;
     }
     .navigation .small_menu {
         float: right;
@@ -188,6 +191,14 @@ footer {
         position: absolute;
         max-width: 500px;
         margin: -1000px;
+    }
+
+    .breadcrumbs {
+        width: calc(100% - 47px);
+        margin: 0  15px;
+        font-size: 14px;
+        text-align: left;
+        float: left;
     }
 
     body p, body h1, body h2, body h3, body h4 {
@@ -358,6 +369,13 @@ footer {
         border-left: solid 0px;
     }
 
+    .breadcrumbs {
+        width: 100%;
+        margin: 15px  15px;
+        font-size: 14px;
+        text-align: left;
+    }
+
     .my_foto {
         max-width: 286px;
     }
@@ -501,6 +519,10 @@ footer {
 	height: 100%;
 	width: 0;
 	vertical-align: middle;
+}
+
+.breadcrumbs a {
+    text-decoration: underline;
 }
 
 body input, body select, body textarea {

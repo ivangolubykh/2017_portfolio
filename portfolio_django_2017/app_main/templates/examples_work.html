@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Главная{% endblock %}
+{% block breadcrumbs %}
+{% endblock %}
+{% block content  %}
+
+    {% for h1 in object_list %}
+        {% if h1.text %}
+            <h1>{{ h1.text|safe }}</h1>
+        {% endif %}
+        {% for h2 in h1.mainheader2text_set.all|dictsort:"ordinal" %}
+            {% if h2.text|safe %}
+                <h2>{{ h2.text }}</h2>
+            {% endif %}
+            {% for h3 in h2.mainheader3text_set.all|dictsort:"ordinal" %}
+                {% if h3.text|safe %}
+                    <h3>{{ h3.text }}</h3>
+                {% endif %}
+                {% for h4 in h3.mainheader4text_set.all|dictsort:"ordinal" %}
+                    {% if h4.text|safe %}
+                        <h4>{{ h4.text }}</h4>
+                    {% endif %}
+                    {% for text in h4.maintext_set.all|dictsort:"ordinal" %}
+                        {% if text.text %}
+                            <p>{{ text.text|safe }}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+
+{% endblock %}

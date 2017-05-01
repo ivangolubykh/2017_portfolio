@@ -29,8 +29,12 @@
 		<div class="navigation">
 			<div class="nothing"></div><!--
 		 --><div class="small">
-				Крошки -> хлебные -> будут
-			</div>
+				{% if crumbs %}
+					<div class="breadcrumbs">
+						{{ crumbs|safe }}
+					</div>
+				{% endif %}
+		    </div>
 			<div class="small_menu">
 				<label><input type="checkbox" name="">
 					<div class="hamburger"></div>
@@ -40,10 +44,11 @@
 			<div class="nothing"></div><!--
 		 -->{% include 'base_main_menu.html' %}
 		</div>
-		<div class="breadcrumbs">
-			{% block breadcrumbs %}
-			{% endblock %}
-		</div>
+		{% if crumbs %}
+			<div class="large_scrin_view breadcrumbs">
+				{{ crumbs|safe }}
+			</div>
+		{% endif %}
 	</header>
 	<article>
 		{% block content %}
