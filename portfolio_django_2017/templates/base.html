@@ -34,23 +34,11 @@
 			<div class="small_menu">
 				<label><input type="checkbox" name="">
 					<div class="hamburger"></div>
-					<ul>
-						<li><a href="{% url 'main' %}">Главная</a></li>
-						<li><a href="{% url 'main' %}">Примеры работ</a></li>
-						<li><a href="{% url 'main' %}">Учёбы</a></li>
-						<li><a href="{% url 'main' %}">Работы</a></li>
-						<li><a href="{% url 'main' %}">Контакты</a></li>
-					</ul>
+					{% include 'base_main_menu.html' %}
 				</label>
 			</div>
 			<div class="nothing"></div><!--
-		 --><ul>
-				<li><a href="{% url 'main' %}">Главная</a></li>
-				<li><a href="{% url 'main' %}">Примеры работ</a></li>
-				<li><a href="{% url 'main' %}">Учёбы</a></li>
-				<li><a href="{% url 'main' %}">Работы</a></li>
-				<li><a href="{% url 'main' %}">Контакты</a></li>
-			</ul>
+		 -->{% include 'base_main_menu.html' %}
 		</div>
 		<div class="breadcrumbs">
 			{% block breadcrumbs %}
