@@ -77,6 +77,21 @@ footer {
     html {
         font-family: OpenSansLight;
     }
+
+    .scroll_up_window {
+        width: 35px;
+    }
+    .scroll_up_button {
+        bottom: 140px;
+        width: 35px;
+        font-size: 12px;
+    }
+    .triangle {
+        border: 10px solid transparent; /* Прозрачные границы */
+        border-top: 0px;
+        border-bottom: 15px solid white; /* Добавляем треугольник */
+    }
+
     .navigation {
         margin: 10px 0 0 0;
         width: 100%;
@@ -163,7 +178,7 @@ footer {
     }
 
     article {
-        margin: 20px 0 75px 0;
+        margin: 20px 0 45px 0;
     }
 
     .weather {
@@ -230,6 +245,20 @@ footer {
 /* Display >480px */
     html {
         font-family: OpenSansRegular;
+    }
+
+    .scroll_up_window {
+        width: 55px;
+    }
+    .scroll_up_button {
+        bottom: 140px;
+        width: 55px;
+        font-size: 16px;
+    }
+    .triangle {
+        border: 15px solid transparent; /* Прозрачные границы */
+        border-top: 0px;
+        border-bottom: 25px solid white; /* Добавляем треугольник */
     }
 
     header {
@@ -323,6 +352,27 @@ footer {
 
 }
 
+.scroll_up_window {
+    position: absolute; /* фиксированная позиция */
+    right: 20px;
+    bottom: 0px;
+    top: 100px;
+    height: calc(100% - 100px);
+}
+.scroll_up_button {
+    position: fixed; /* фиксированная позиция */
+    margin: 0;
+    text-align: center;
+    display: none;
+    z-index: 1;
+    background: rgba(35,97,176,0.7);
+}
+.triangle {
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+}
+
 
 .navigation ul li a {
     vertical-align: middle;
@@ -352,9 +402,6 @@ footer {
     box-shadow: 0 2px 4px 0 black;
 }
 
-
-
-
 .navigation {
 	display: inline-block;
 	line-height: 1;
@@ -366,8 +413,6 @@ footer {
 	width: 0;
 	vertical-align: middle;
 }
-
-
 
 body input, body select, body textarea {
     color: black;
@@ -407,32 +452,8 @@ p {
     vertical-align: middle;
 }
 
-.scroll_up_window {
-    position: absolute; /* фиксированная позиция */
-    right: 20px;
-    bottom: 0px;
-    top: 100px;
-    width: 55px;
-    height: calc(100% - 100px);
-}
-.scroll_up_button {
-    position: fixed; /* фиксированная позиция */
-    bottom: 140px;
-    width: 55px;
-    margin: 0;
-    text-align: center;
-    display: none;
-    z-index: 1;
-    background: rgba(35,97,176,0.7);
-}
-.triangle {
-    display: inline-block;
-    width: 0px;
-    height: 0px;
-    border: 15px solid transparent; /* Прозрачные границы */
-    border-top: 0px;
-    border-bottom: 25px solid white; /* Добавляем треугольник */
-}
+
+
 
 .footer_contact {
     height: 45px;
