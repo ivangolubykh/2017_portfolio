@@ -38,15 +38,15 @@
     <div class="puzzle_button">
         <button onclick="arcana();">Получить загадку</button>
     </div>
-    <div class="weather">
-        <img id="weather_img" class="rainfall" src="{% static 'general/img/empty.gif' %}">
-        <img class="weather_logo" src="{% static 'general/img/wundergroundLogo_4c_horz.jpg' %}">
-        <div class="nothing"></div><!--
+    <div class="weather"><!--
+     --><img id="weather_img" class="rainfall" src="{% static 'general/img/empty.gif' %}"><!--
      --><div class="weather_text">
-            Погода в Санкт-Петербурге сейчас:
-            <br><span id="weather_temperature">вычисляется..., </span>&deg;C,
+        <span>Погода в Санкт-Петербурге сейчас:</span>
+            <span id="weather_temperature">вычисляется...</span>
             <span id="weather_text">...</span>
-        </div>
+        </div><!--
+     --><div class="nothing"></div><!--
+     --><img class="weather_logo" src="{% static 'general/img/wundergroundLogo_4c_horz.jpg' %}">
     </div>
 {% endblock %}
 

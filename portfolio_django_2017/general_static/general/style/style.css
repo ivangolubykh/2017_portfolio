@@ -162,6 +162,21 @@ footer {
         margin: 20px 0px;
     }
 
+    article {
+        margin: 20px 0 75px 0;
+    }
+
+    .weather {
+        font-size: 16px;
+
+    }
+    .weather_text{
+        width: calc(100% - 90px)
+    }
+    .weather_logo {
+        width: 230px;
+        margin: 8px calc(50% - 115px);
+    }
 }
 
 
@@ -184,6 +199,7 @@ footer {
         height: 33px;
         margin: 10px 0;
     }
+
 }
 
 @media screen and (min-width: 321px) and (max-width: 480px) {
@@ -206,6 +222,7 @@ footer {
         height: 45px;
         margin: 20px 0;
     }
+
 
 }
 
@@ -257,6 +274,10 @@ footer {
         margin: 35px 0px;
     }
 
+    article {
+        margin: 45px 0 75px 0;
+    }
+
     .puzzle_button{
         text-align: right;
     }
@@ -265,6 +286,18 @@ footer {
         width: 310px;
         height: 50px;
         margin: 25px 0;
+    }
+
+    .weather {
+        font-size: 20px;
+    }
+    .weather_text{
+        width: calc(100% - 80px - 30% - 30px)
+    }
+    .weather_logo {
+        width: 230px;
+        float: right;
+        margin: 8px 15px;
     }
 
 }
@@ -279,6 +312,15 @@ footer {
         height: 20px;
         vertical-align: middle;
     }
+
+    .weather {
+        font-size: 16px;
+    }
+    .weather_logo {
+        width: 30%;
+        margin: 8px 15px;
+    }
+
 }
 
 
@@ -325,10 +367,6 @@ footer {
 	vertical-align: middle;
 }
 
-article {
-    margin: 45px 0 75px 0;
-}
-
 
 
 body input, body select, body textarea {
@@ -339,34 +377,33 @@ p {
     text-indent: 1em;
 }
 
-
 .weather {
     width: 100%;
-    height: 66px;
+    min-height: 66px;
     background: white;
     margin: 25px 0 25px 0;
     border: none;
     border-radius: 10px;
     color: black;
-    font-size: 20px;
+    vertical-align: middle;
 }
 .rainfall {
+    display: inline-block;
     width: 50px;
     height: 50px;
-    float: left;
     margin: 8px 15px;
+    vertical-align: middle;
 }
-
-.weather_logo {
-    width: 230px;
-    height: 50px;
-    float: right;
-    margin: 8px 15px;
-}
-
 .weather_text {
-    width: 450px;
     display: inline-block;
+    vertical-align: middle;
+}
+.weather_text span {
+    line-height: 1.2em;
+}
+.weather_logo {
+    display: inline-block;
+    max-width: 230px;
     vertical-align: middle;
 }
 
