@@ -158,6 +158,9 @@ footer {
         margin: -1000px;
     }
 
+    body p, body h1, body h2, body h3, body h4 {
+        margin: 20px 0px;
+    }
 
 }
 
@@ -171,8 +174,15 @@ footer {
     body p {
         font-size: 18px;
     }
+
+    .puzzle_button{
+        text-align: left;
+    }
     .puzzle_button > button {
         font-size: 14px;
+        width: 195px;
+        height: 33px;
+        margin: 10px 0;
     }
 }
 
@@ -186,8 +196,15 @@ footer {
     body p {
         font-size: 18px;
     }
+
+    .puzzle_button{
+        text-align: right;
+    }
     .puzzle_button > button {
         font-size: 20px;
+        width: 275px;
+        height: 45px;
+        margin: 20px 0;
     }
 
 }
@@ -233,30 +250,22 @@ footer {
     body h1 {
         font-size: 30px;
     }
-    body p, .puzzle_button > button {
+    body p {
         font-size: 24px;
     }
-
-
-
-
-
-
-    .content > div {
-        display: inline-block;
-        vertical-align: top;
-    }
-
-    .text_page {
-        min-height: 300px;
-    }
-
     body p, body h1, body h2, body h3, body h4 {
-        margin: 35px 2px;
+        margin: 35px 0px;
     }
 
-
-
+    .puzzle_button{
+        text-align: right;
+    }
+    .puzzle_button > button {
+        font-size: 24px;
+        width: 310px;
+        height: 50px;
+        margin: 25px 0;
+    }
 
 }
 
@@ -287,9 +296,19 @@ footer {
     width: 100%;
     height: 100%;
 }
+.text_page {
+    min-height: 300px;
+}
 
-
-
+.puzzle_button{
+    width: 100%;
+}
+.puzzle_button > button {
+    background: #d74141;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 black;
+}
 
 
 
@@ -320,19 +339,6 @@ p {
     text-indent: 1em;
 }
 
-.puzzle_button{
-    width: 100%;
-    text-align: right;
-}
-.puzzle_button > button {
-    width: 310px;
-    height: 50px;
-    background: #d74141;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px 0 black;
-    margin: 25px 0 25px 0;
-}
 
 .weather {
     width: 100%;
