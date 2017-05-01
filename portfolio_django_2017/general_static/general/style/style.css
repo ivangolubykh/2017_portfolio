@@ -55,22 +55,40 @@ body {
     position: relative;
     max-width: 1280px;
     margin: 0 auto;
-    min-height: calc(100% - 133px);
-    padding: 0px 20px 133px 20px;
 }
 
 footer {
-    height: 133px;
-    margin-top: -133px;
     background-color: #ffffff;
     text-align: center;
     color: #000;
-    font-size: 20px;
     /* Чтобы текст в футере выделялся (z-index и position):*/
     z-index: 1;
     position: relative;
 }
-
+.box_block {
+    display: inline-block;
+    vertical-align: middle;
+}
+.box_block img{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+.footer_name {
+    height: 45px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    text-decoration: underline;
+}
+.footer_license {
+    height: 43px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
 
 @media screen and (max-width: 480px) {
 /* Display 320px AND 480px*/
@@ -82,7 +100,6 @@ footer {
         width: 35px;
     }
     .scroll_up_button {
-        bottom: 140px;
         width: 35px;
         font-size: 12px;
     }
@@ -192,10 +209,14 @@ footer {
         width: 230px;
         margin: 8px calc(50% - 115px);
     }
+
+    .box_block {
+        margin: 0 5px;
+    }
 }
 
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 370px) {
 /* Display 320px only */
     body h1 {
         font-family: OpenSansRegular;
@@ -203,6 +224,10 @@ footer {
     }
     body p {
         font-size: 18px;
+    }
+
+    .scroll_up_button {
+        bottom: 140px;
     }
 
     .puzzle_button{
@@ -215,9 +240,30 @@ footer {
         margin: 10px 0;
     }
 
+    .overfooter {
+        min-height: calc(100% - 133px);
+        padding: 0px 20px 133px 20px;
+    }
+
+    footer {
+        height: 133px;
+        margin-top: -133px;
+        font-size: 18px;
+    }
+    .box_block, .footer_name {
+        height: 30px;
+    }
+    .footer_contact {
+        height: 60px;
+    }
+    .footer_license {
+        font-size: 14px;
+        height: 43px;
+    }
+
 }
 
-@media screen and (min-width: 321px) and (max-width: 480px) {
+@media screen and (min-width: 371px) and (max-width: 480px) {
 /* Display 321-480px only */
     body h1 {
         font-family: OpenSansRegular;
@@ -226,6 +272,10 @@ footer {
 
     body p {
         font-size: 18px;
+    }
+
+    .scroll_up_button {
+        bottom: 183px;
     }
 
     .puzzle_button{
@@ -238,7 +288,25 @@ footer {
         margin: 20px 0;
     }
 
+    .overfooter {
+        min-height: calc(100% - 178px);
+        padding: 0px 20px 178px 20px;
+    }
 
+    footer {
+        height: 178px;
+        margin-top: -178px;
+        font-size: 20px;
+    }
+    .box_block {
+        height: 45px;
+    }
+    .footer_contact {
+        height: 90px;
+    }
+    .footer_name, .footer_license {
+        font-size: 18px;
+    }
 }
 
 @media screen and (min-width: 481px) {
@@ -329,10 +397,30 @@ footer {
         margin: 8px 15px;
     }
 
+    .overfooter {
+        min-height: calc(100% - 133px);
+        padding: 0px 20px 133px 20px;
+    }
+
+    footer {
+        height: 133px;
+        margin-top: -133px;
+        font-size: 20px;
+    }
+    .box_block {
+        margin: 0 15px;
+        height: 45px;
+    }
+    .footer_contact {
+        height: 45px;
+    }
+    .footer_license {
+        font-size: 18px;
+    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
-/* Display >480px */
+/* Display 480px - 900px */
     .navigation ul li {
         padding: 0px 5px;
         display: inline-block;
@@ -349,7 +437,33 @@ footer {
         width: 30%;
         margin: 8px 15px;
     }
+}
 
+@media screen and (min-width: 481px) and (max-width: 640px) {
+/* Display 480px - 640px */
+    .scroll_up_button {
+        bottom: 183px;
+    }
+    .overfooter {
+        min-height: calc(100% - 178px);
+        padding: 0px 20px 178px 20px;
+    }
+
+    footer {
+        height: 178px;
+        margin-top: -178px;
+        font-size: 20px;
+    }
+    .box_block {
+        height: 45px;
+        /*width: calc(50% - 35px);*/
+    }
+    .footer_contact {
+        height: 90px;
+    }
+    .footer_name, .footer_license {
+        font-size: 18px;
+    }
 }
 
 .scroll_up_window {
@@ -377,31 +491,6 @@ footer {
 .navigation ul li a {
     vertical-align: middle;
 }
-.my_foto {
-    float: left;
-    margin: 0 15px 0 0;
-    width: 40%;
-}
-.my_foto > img {
-    border-radius: 50%;
-    box-shadow: 0 0 55px -5px white;
-    width: 100%;
-    height: 100%;
-}
-.text_page {
-    min-height: 300px;
-}
-
-.puzzle_button{
-    width: 100%;
-}
-.puzzle_button > button {
-    background: #d74141;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px 0 black;
-}
-
 .navigation {
 	display: inline-block;
 	line-height: 1;
@@ -420,6 +509,32 @@ body input, body select, body textarea {
 
 p {
     text-indent: 1em;
+}
+
+.my_foto {
+    float: left;
+    margin: 0 15px 0 0;
+    width: 40%;
+}
+.my_foto > img {
+    border-radius: 50%;
+    box-shadow: 0 0 55px -5px white;
+    width: 100%;
+    height: 100%;
+}
+
+article {
+    min-height: 300px;
+}
+
+.puzzle_button{
+    width: 100%;
+}
+.puzzle_button > button {
+    background: #d74141;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 black;
 }
 
 .weather {
@@ -450,38 +565,4 @@ p {
     display: inline-block;
     max-width: 230px;
     vertical-align: middle;
-}
-
-
-
-
-.footer_contact {
-    height: 45px;
-}
-.box_block {
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    margin: 0 15px;
-}
-.box_block img{
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 5px;
-}
-.footer_name {
-    height: 45px;
-    width: 100%;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-    text-decoration: underline;
-}
-.footer_license {
-    height: 43px;
-    width: 100%;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-    font-size: 18px;
 }
