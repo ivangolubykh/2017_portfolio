@@ -342,6 +342,7 @@ p {
     text-align: center;
     display: none;
     z-index: 1;
+    background: rgba(35,97,176,0.7);
 }
 .triangle {
     display: inline-block;
