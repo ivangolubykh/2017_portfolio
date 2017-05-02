@@ -9,3 +9,4 @@ from django.core.urlresolvers import reverse_lazy
 # очень трудно в ворохе схожего найти нужное.
 from .views_admin_main_pages import *
 from .views_admin_examples_python_pages import *
+from .views_admin_examples_js_pages import *

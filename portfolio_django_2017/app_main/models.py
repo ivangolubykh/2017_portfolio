@@ -1,10 +1,11 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-''' Предусмотрел в БД 4 уровня заголовков, т.к. в перспективе структура
- электронного резюмерезюме может сильно меняться.
+''' Предусмотрел в БД 4 уровня заголовков или списков, т.к. в
+ перспективе структура электронного резюмерезюме может сильно меняться.
 '''
 from .models_main_page import *
 from .models_examples_work_python import *
+from .models_examples_work_js import *
 
 
 class Weather_For_Json(models.Model):

@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from app_main.models_examples_work_python import \
+from app_main.models import \
     ExamplesPythonHeaderorList1Text, ExamplesPythonHeaderorList2Text,\
     ExamplesPythonHeaderorList3Text, ExamplesPythonHeaderorList4Text,\
     ExamplesPythonText

@@ -6,9 +6,9 @@ from django.core.urlresolvers import reverse
 
 
 # #################
-# Группа классов модели для данных главной страницы:
+# Группа классов модели для данных страницы примеров работ на JavaScript:
 # #################
-class MainHeader1Text(models.Model):
+class ExamplesJsHeaderorList1Text(models.Model):
     ''' Текстовые заголовки уровня <h1>
     '''
     # Порядковый номер заголовка в тексте
@@ -27,7 +27,7 @@ class MainHeader1Text(models.Model):
             # уникальным.
             unique=True,
             help_text='Порядковый номер заголовка h1 на странице',
-            verbose_name="Порядковый номер заголовка h1 на странице",
+            verbose_name='Порядковый номер заголовка h1 на странице',
                 )
 
     text = models.CharField(max_length=255,
@@ -44,18 +44,18 @@ class MainHeader1Text(models.Model):
                             # При unique=True значение поля должно быть
                             # уникальным.
                             unique=False,
-                            help_text='Заголовки (h1) для главной страницы',
-                            verbose_name="Заголовки (h1) для главной страницы",
+                            help_text='Заголовки (h1) для страницы',
+                            verbose_name='Заголовки (h1) для страницы',
                             )
 
     def __str__(self):
         return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
-        return reverse('admin')
+        return reverse('admin_examples_work_js')
 
 
-class MainHeader2Text(models.Model):
+class ExamplesJsHeaderorList2Text(models.Model):
     ''' Текстовые заголовки уровня <h2>
     '''
     # Порядковый номер заголовка в тексте
@@ -91,11 +91,11 @@ class MainHeader2Text(models.Model):
                             # При unique=True значение поля должно быть
                             # уникальным.
                             unique=False,
-                            help_text='Заголовки (h2) для главной страницы',
-                            verbose_name="Заголовки (h2) для главной страницы",
+                            help_text='Заголовки (h2) для страницы',
+                            verbose_name="Заголовки (h2) для страницы",
                             )
 
-    up = models.ForeignKey(MainHeader1Text,
+    up = models.ForeignKey(ExamplesJsHeaderorList1Text,
                            # При удаении ключа, удалять и эту запись:
                            on_delete=models.CASCADE,
                            )
@@ -104,10 +104,10 @@ class MainHeader2Text(models.Model):
         return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
-        return reverse('admin')
+        return reverse('admin_examples_work_js')
 
 
-class MainHeader3Text(models.Model):
+class ExamplesJsHeaderorList3Text(models.Model):
     ''' Текстовые заголовки уровня <h3>
     '''
     # Порядковый номер заголовка в тексте
@@ -143,11 +143,12 @@ class MainHeader3Text(models.Model):
                             # При unique=True значение поля должно быть
                             # уникальным.
                             unique=False,
-                            help_text='Заголовки (h3) для главной страницы',
-                            verbose_name="Заголовки (h3) для главной страницы",
+                            help_text='Заголовки (h3) для страницы'
+                                      ' примеров работ',
+                            verbose_name="Заголовки (h3) для страницы",
                             )
 
-    up = models.ForeignKey(MainHeader2Text,
+    up = models.ForeignKey(ExamplesJsHeaderorList2Text,
                            # При удаении ключа, удалять и эту запись:
                            on_delete=models.CASCADE,
                            )
@@ -156,10 +157,10 @@ class MainHeader3Text(models.Model):
         return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
-        return reverse('admin')
+        return reverse('admin_examples_work_js')
 
 
-class MainHeader4Text(models.Model):
+class ExamplesJsHeaderorList4Text(models.Model):
     ''' Текстовые заголовки уровня <h4>
     '''
     # Порядковый номер заголовка в тексте
@@ -195,11 +196,11 @@ class MainHeader4Text(models.Model):
                             # При unique=True значение поля должно быть
                             # уникальным.
                             unique=False,
-                            help_text='Заголовки (h4) для главной страницы',
-                            verbose_name="Заголовки (h4) для главной страницы",
+                            help_text='Заголовки (h4) для  страницы',
+                            verbose_name="Заголовки (h4) для  страницы",
                             )
 
-    up = models.ForeignKey(MainHeader3Text,
+    up = models.ForeignKey(ExamplesJsHeaderorList3Text,
                            # При удаении ключа, удалять и эту запись:
                            on_delete=models.CASCADE,
                            )
@@ -208,10 +209,10 @@ class MainHeader4Text(models.Model):
         return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
-        return reverse('admin')
+        return reverse('admin_examples_work_js')
 
 
-class MainText(models.Model):
+class ExamplesJsText(models.Model):
     ''' Абзацы с текстом на странице
     '''
     # Порядковый номер абзаца в тексте
@@ -251,7 +252,7 @@ class MainText(models.Model):
                             verbose_name="Текст абзаца",
                             )
 
-    up = models.ForeignKey(MainHeader4Text,
+    up = models.ForeignKey(ExamplesJsHeaderorList4Text,
                            # При удаении ключа, удалять и эту запись:
                            on_delete=models.CASCADE,
                            )
@@ -260,7 +261,7 @@ class MainText(models.Model):
         return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
-        return reverse('admin')
+        return reverse('admin_examples_work_js')
 # #################
-# Окончание группы классов модели для данных главной страницы.
+# Окончание группы классов модели для данных примеров работ на JavaScript.
 # #################

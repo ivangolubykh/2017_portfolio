@@ -44,10 +44,8 @@ class ExamplesPythonHeaderorList1Text(models.Model):
                             # При unique=True значение поля должно быть
                             # уникальным.
                             unique=False,
-                            help_text='Заголовки (h1) для страницы'
-                                      ' примеров работ',
-                            verbose_name='Заголовки (h1) для страницы'
-                                         ' примеров работ',
+                            help_text='Заголовки (h1) для страницы',
+                            verbose_name='Заголовки (h1) для страницы',
                             )
 
     def __str__(self):
@@ -93,8 +91,8 @@ class ExamplesPythonHeaderorList2Text(models.Model):
                             # При unique=True значение поля должно быть
                             # уникальным.
                             unique=False,
-                            help_text='Заголовки (h2) для главной страницы',
-                            verbose_name="Заголовки (h2) для главной страницы",
+                            help_text='Заголовки (h2) для страницы',
+                            verbose_name="Заголовки (h2) для страницы",
                             )
 
     up = models.ForeignKey(ExamplesPythonHeaderorList1Text,
@@ -145,8 +143,8 @@ class ExamplesPythonHeaderorList3Text(models.Model):
                             # При unique=True значение поля должно быть
                             # уникальным.
                             unique=False,
-                            help_text='Заголовки (h3) для главной страницы',
-                            verbose_name="Заголовки (h3) для главной страницы",
+                            help_text='Заголовки (h3) для страницы',
+                            verbose_name="Заголовки (h3) для страницы",
                             )
 
     up = models.ForeignKey(ExamplesPythonHeaderorList2Text,
@@ -197,8 +195,8 @@ class ExamplesPythonHeaderorList4Text(models.Model):
                             # При unique=True значение поля должно быть
                             # уникальным.
                             unique=False,
-                            help_text='Заголовки (h4) для главной страницы',
-                            verbose_name="Заголовки (h4) для главной страницы",
+                            help_text='Заголовки (h4) для страницы',
+                            verbose_name="Заголовки (h4) для страницы",
                             )
 
     up = models.ForeignKey(ExamplesPythonHeaderorList3Text,
