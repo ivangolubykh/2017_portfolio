@@ -6,9 +6,9 @@ from django.core.urlresolvers import reverse
 
 
 # #################
-# Группа классов модели для данных страницы примеров работ на HTML/CSS:
+# Группа классов модели для данных страницы Учёбы:
 # #################
-class ExamplesHtmlCssHeaderorList1Text(models.Model):
+class ExamplesEducationHeaderorList1Text(models.Model):
     ''' Текстовые заголовки уровня <h1>
     '''
     # Порядковый номер заголовка в тексте
@@ -52,10 +52,10 @@ class ExamplesHtmlCssHeaderorList1Text(models.Model):
         return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
-        return reverse('admin_examples_work_html_css')
+        return reverse('admin_examples_work_education')
 
 
-class ExamplesHtmlCssHeaderorList2Text(models.Model):
+class ExamplesEducationHeaderorList2Text(models.Model):
     ''' Текстовые заголовки уровня <h2>
     '''
     # Порядковый номер заголовка в тексте
@@ -95,7 +95,7 @@ class ExamplesHtmlCssHeaderorList2Text(models.Model):
                             verbose_name="Заголовки (h2) для страницы",
                             )
 
-    up = models.ForeignKey(ExamplesHtmlCssHeaderorList1Text,
+    up = models.ForeignKey(ExamplesEducationHeaderorList1Text,
                            # При удаении ключа, удалять и эту запись:
                            on_delete=models.CASCADE,
                            )
@@ -104,10 +104,10 @@ class ExamplesHtmlCssHeaderorList2Text(models.Model):
         return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
-        return reverse('admin_examples_work_html_css')
+        return reverse('admin_examples_work_education')
 
 
-class ExamplesHtmlCssHeaderorList3Text(models.Model):
+class ExamplesEducationHeaderorList3Text(models.Model):
     ''' Текстовые заголовки уровня <h3>
     '''
     # Порядковый номер заголовка в тексте
@@ -147,7 +147,7 @@ class ExamplesHtmlCssHeaderorList3Text(models.Model):
                             verbose_name="Заголовки (h3) для страницы",
                             )
 
-    up = models.ForeignKey(ExamplesHtmlCssHeaderorList2Text,
+    up = models.ForeignKey(ExamplesEducationHeaderorList2Text,
                            # При удаении ключа, удалять и эту запись:
                            on_delete=models.CASCADE,
                            )
@@ -156,10 +156,10 @@ class ExamplesHtmlCssHeaderorList3Text(models.Model):
         return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
-        return reverse('admin_examples_work_html_css')
+        return reverse('admin_examples_work_education')
 
 
-class ExamplesHtmlCssHeaderorList4Text(models.Model):
+class ExamplesEducationHeaderorList4Text(models.Model):
     ''' Текстовые заголовки уровня <h4>
     '''
     # Порядковый номер заголовка в тексте
@@ -199,7 +199,7 @@ class ExamplesHtmlCssHeaderorList4Text(models.Model):
                             verbose_name="Заголовки (h4) для страницы",
                             )
 
-    up = models.ForeignKey(ExamplesHtmlCssHeaderorList3Text,
+    up = models.ForeignKey(ExamplesEducationHeaderorList3Text,
                            # При удаении ключа, удалять и эту запись:
                            on_delete=models.CASCADE,
                            )
@@ -208,10 +208,10 @@ class ExamplesHtmlCssHeaderorList4Text(models.Model):
         return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
-        return reverse('admin_examples_work_html_css')
+        return reverse('admin_examples_work_education')
 
 
-class ExamplesHtmlCssText(models.Model):
+class ExamplesEducationText(models.Model):
     ''' Абзацы с текстом на странице
     '''
     # Порядковый номер абзаца в тексте
@@ -251,7 +251,7 @@ class ExamplesHtmlCssText(models.Model):
                             verbose_name="Текст абзаца",
                             )
 
-    up = models.ForeignKey(ExamplesHtmlCssHeaderorList4Text,
+    up = models.ForeignKey(ExamplesEducationHeaderorList4Text,
                            # При удаении ключа, удалять и эту запись:
                            on_delete=models.CASCADE,
                            )
@@ -260,7 +260,7 @@ class ExamplesHtmlCssText(models.Model):
         return '{} - {}'.format(self.ordinal, self.text)
 
     def get_absolute_url(self):
-        return reverse('admin_examples_work_html_css')
+        return reverse('admin_examples_work_education')
 # #################
-# Окончание группы классов модели для страницы примеров работ на HTML/CSS.
+# Окончание группы классов модели для страницы Учёбы.
 # #################

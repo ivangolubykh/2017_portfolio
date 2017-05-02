@@ -263,5 +263,5 @@ class ExamplesJsText(models.Model):
     def get_absolute_url(self):
         return reverse('admin_examples_work_js')
 # #################
-# Окончание группы классов модели для данных примеров работ на JavaScript.
+# Окончание группы классов модели для страницы примеров работ на JavaScript.
 # #################

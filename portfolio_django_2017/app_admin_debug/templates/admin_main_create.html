@@ -2,8 +2,7 @@
 
 {% block title %}Админка{% endblock %}
 {% block content  %}
-        <br><a href="{% url 'main' %}">Сайт</a>
-        <br><a href="{% url 'admin' %}">Админка, общее</a>
+    {% include 'admin_menu.html' %}
     <br>
     <br>
 <form action="" method="post">{% csrf_token %}

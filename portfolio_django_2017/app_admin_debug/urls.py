@@ -43,7 +43,16 @@ from .views import AdminListView, H1Create, H2Create, H3Create, H4Create, \
     AdminExamplesHtmlCssH4Delete, AdminExamplesHtmlCssTextDelete, \
     AdminExamplesHtmlCssH1Update, AdminExamplesHtmlCssH2Update, \
     AdminExamplesHtmlCssH3Update, AdminExamplesHtmlCssH4Update, \
-    AdminExamplesHtmlCssTextUpdate
+    AdminExamplesHtmlCssTextUpdate,\
+    AdminExamplesEducationListView, \
+    AdminExamplesEducationH1Create, AdminExamplesEducationH2Create, \
+    AdminExamplesEducationH3Create, AdminExamplesEducationH4Create, \
+    AdminExamplesEducationTextCreate, AdminExamplesEducationH1Delete, \
+    AdminExamplesEducationH2Delete, AdminExamplesEducationH3Delete, \
+    AdminExamplesEducationH4Delete, AdminExamplesEducationTextDelete, \
+    AdminExamplesEducationH1Update, AdminExamplesEducationH2Update, \
+    AdminExamplesEducationH3Update, AdminExamplesEducationH4Update, \
+    AdminExamplesEducationTextUpdate
 
 # Блок страниц админки для главной страницы:
 urlpatterns = [
@@ -230,4 +239,56 @@ urlpatterns += [
     url(r'admin_examples_work_html_css/update_main_text/(?P<pk>[\w]+)/$',
         AdminExamplesHtmlCssTextUpdate.as_view(),
         name='admin_examples_work_html_css-update_text'),
+]
+
+# Блок страниц админки для страницы Учёбы:
+urlpatterns += [
+    url(r'^admin_examples_work_education/$',
+        AdminExamplesEducationListView.as_view(),
+        name='admin_examples_work_education'),
+    url(r'admin_examples_work_education/add_main_h1/$',
+        AdminExamplesEducationH1Create.as_view(),
+        name='admin_examples_work_education-add_h1'),
+    url(r'admin_examples_work_education/add_main_h2/$',
+        AdminExamplesEducationH2Create.as_view(),
+        name='admin_examples_work_education-add_h2'),
+    url(r'admin_examples_work_education/add_main_h3/$',
+        AdminExamplesEducationH3Create.as_view(),
+        name='admin_examples_work_education-add_h3'),
+    url(r'admin_examples_work_education/add_main_h4/$',
+        AdminExamplesEducationH4Create.as_view(),
+        name='admin_examples_work_education-add_h4'),
+    url(r'admin_examples_work_education/add_main_text/$',
+        AdminExamplesEducationTextCreate.as_view(),
+        name='admin_examples_work_education-add_text'),
+    url(r'admin_examples_work_education/del_main_h1/(?P<pk>[\w]+)/$',
+        AdminExamplesEducationH1Delete.as_view(),
+        name='admin_examples_work_education-del_h1'),
+    url(r'admin_examples_work_education/del_main_h2/(?P<pk>[\w]+)/$',
+        AdminExamplesEducationH2Delete.as_view(),
+        name='admin_examples_work_education-del_h2'),
+    url(r'admin_examples_work_education/del_main_h3/(?P<pk>[\w]+)/$',
+        AdminExamplesEducationH3Delete.as_view(),
+        name='admin_examples_work_education-del_h3'),
+    url(r'admin_examples_work_education/del_main_h4/(?P<pk>[\w]+)/$',
+        AdminExamplesEducationH4Delete.as_view(),
+        name='admin_examples_work_education-del_h4'),
+    url(r'admin_examples_work_education/del_main_text/(?P<pk>[\w]+)/$',
+        AdminExamplesEducationTextDelete.as_view(),
+        name='admin_examples_work_education-del_text'),
+    url(r'admin_examples_work_education/update_main_h1/(?P<pk>[\w]+)/$',
+        AdminExamplesEducationH1Update.as_view(),
+        name='admin_examples_work_education-update_h1'),
+    url(r'admin_examples_work_education/update_main_h2/(?P<pk>[\w]+)/$',
+        AdminExamplesEducationH2Update.as_view(),
+        name='admin_examples_work_education-update_h2'),
+    url(r'admin_examples_work_education/update_main_h3/(?P<pk>[\w]+)/$',
+        AdminExamplesEducationH3Update.as_view(),
+        name='admin_examples_work_education-update_h3'),
+    url(r'admin_examples_work_education/update_main_h4/(?P<pk>[\w]+)/$',
+        AdminExamplesEducationH4Update.as_view(),
+        name='admin_examples_work_education-update_h4'),
+    url(r'admin_examples_work_education/update_main_text/(?P<pk>[\w]+)/$',
+        AdminExamplesEducationTextUpdate.as_view(),
+        name='admin_examples_work_education-update_text'),
 ]

@@ -11,3 +11,4 @@ from .views_admin_main_pages import *
 from .views_admin_examples_python_pages import *
 from .views_admin_examples_js_pages import *
 from .views_admin_examples_html_css_pages import *
+from .views_admin_examples_education_pages import *

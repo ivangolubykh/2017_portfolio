@@ -262,5 +262,5 @@ class ExamplesPythonText(models.Model):
     def get_absolute_url(self):
         return reverse('admin_examples_work_python')
 # #################
-# Окончание группы классов модели для данных примеров работ на питоне.
+# Окончание группы классов модели для страницы примеров работ на питоне.
 # #################
