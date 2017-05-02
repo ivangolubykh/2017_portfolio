@@ -7,7 +7,8 @@ from .models_main_page import *
 from .models_examples_work_python import *
 from .models_examples_work_js import *
 from .models_examples_work_html_css import *
-from .models_examples_work_education import *
+from .models_education import *
+from .models_works import *
 
 
 class Weather_For_Json(models.Model):
