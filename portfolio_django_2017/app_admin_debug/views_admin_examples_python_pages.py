@@ -12,12 +12,16 @@ from django.core.urlresolvers import reverse_lazy
 class AdminExamplesPythonListView(ListView):
     queryset = ExamplesPythonHeaderorList1Text.objects.order_by('ordinal'). \
         prefetch_related('examplespythonheaderorlist2text_set',
-                         'examplespythonheaderorlist2text__examplespythonheaderorlist3text_set',
-                         'examplespythonheaderorlist2text_set__examplespythonheaderorlist3text_set__'
+                         'examplespythonheaderorlist2text_set__'
+                         'examplespythonheaderorlist3text_set',
+                         'examplespythonheaderorlist2text_set__'
+                         'examplespythonheaderorlist3text_set__'
                          'examplespythonheaderorlist4text_set',
-                         'examplespythonheaderorlist2text_set__examplespythonheaderorlist3text_set__'
-                         'examplespythonheaderorlist4text_set__examplespythontext_set')
-    template_name = 'admin_examples_python.html'
+                         'examplespythonheaderorlist2text_set__'
+                         'examplespythonheaderorlist3text_set__'
+                         'examplespythonheaderorlist4text_set__'
+                         'examplespythontext_set')
+    template_name = 'admin_examples_work_python.html'
 
 
 class AdminExamplesPythonH1Create(CreateView):

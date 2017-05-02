@@ -22,13 +22,13 @@
     <br>
     {% for h1 in object_list %}
 <p><a style="color:#e2afaf;" href="{% url 'admin_examples_work_python-del_h1' h1.id%}">del</a> <a href="{% url 'admin_examples_work_python-update_h1' h1.id%}">{{h1.ordinal}} - {{h1.text}}</a></p>
-        {% for h2 in h1.ExamplesPythonHeaderorList2Text_set.all %}
+        {% for h2 in h1.examplespythonheaderorlist2text_set.all %}
 <p>&nbsp;<a style="color:#e2afaf;" href="{% url 'admin_examples_work_python-del_h2' h2.id%}">del</a> <a href="{% url 'admin_examples_work_python-update_h2' h2.id%}">{{h2.ordinal}} - {{h2.text}}</a></p>
-            {% for h3 in h2.ExamplesPythonHeaderorList3Text_set.all %}
+            {% for h3 in h2.examplespythonheaderorlist3text_set.all %}
 <p>&nbsp;&nbsp;<a style="color:#e2afaf;" href="{% url 'admin_examples_work_python-del_h3' h3.id%}">del</a> <a href="{% url 'admin_examples_work_python-update_h3' h3.id%}">{{h3.ordinal}} - {{h3.text}}</a></p>
-                {% for h4 in h3.ExamplesPythonHeaderorList4Text_set.all %}
+                {% for h4 in h3.examplespythonheaderorlist4text_set.all %}
 <p>&nbsp;&nbsp;&nbsp;<a style="color:#e2afaf;" href="{% url 'admin_examples_work_python-del_h4' h4.id%}">del</a> <a href="{% url 'admin_examples_work_python-update_h4' h4.id%}">{{h4.ordinal}} - {{h4.text}}</a></p>
-                    {% for text in h4.ExamplesPythonText_set.all %}
+                    {% for text in h4.examplespythontext_set.all %}
 <p>&nbsp;&nbsp;&nbsp;&nbsp;<a style="color:#e2afaf;" href="{% url 'admin_examples_work_python-del_text' text.id%}">del</a> <a href="{% url 'admin_examples_work_python-update_text' text.id%}">{{text.ordinal}} - {{text.text}}</a></p>
                     {% endfor %}
                 {% endfor %}
