@@ -34,7 +34,16 @@ from .views import AdminListView, H1Create, H2Create, H3Create, H4Create, \
     AdminExamplesJsH4Delete, AdminExamplesJsTextDelete, \
     AdminExamplesJsH1Update, AdminExamplesJsH2Update, \
     AdminExamplesJsH3Update, AdminExamplesJsH4Update, \
-    AdminExamplesJsTextUpdate
+    AdminExamplesJsTextUpdate,\
+    AdminExamplesHtmlCssListView, \
+    AdminExamplesHtmlCssH1Create, AdminExamplesHtmlCssH2Create, \
+    AdminExamplesHtmlCssH3Create, AdminExamplesHtmlCssH4Create, \
+    AdminExamplesHtmlCssTextCreate, AdminExamplesHtmlCssH1Delete, \
+    AdminExamplesHtmlCssH2Delete, AdminExamplesHtmlCssH3Delete, \
+    AdminExamplesHtmlCssH4Delete, AdminExamplesHtmlCssTextDelete, \
+    AdminExamplesHtmlCssH1Update, AdminExamplesHtmlCssH2Update, \
+    AdminExamplesHtmlCssH3Update, AdminExamplesHtmlCssH4Update, \
+    AdminExamplesHtmlCssTextUpdate
 
 # Блок страниц админки для главной страницы:
 urlpatterns = [
@@ -169,4 +178,56 @@ urlpatterns += [
     url(r'admin_examples_work_js/update_main_text/(?P<pk>[\w]+)/$',
         AdminExamplesJsTextUpdate.as_view(),
         name='admin_examples_work_js-update_text'),
+]
+
+# Блок страниц админки для страницы примеров работ на Html5/Css:
+urlpatterns += [
+    url(r'^admin_examples_work_html_css/$',
+        AdminExamplesHtmlCssListView.as_view(),
+        name='admin_examples_work_html_css'),
+    url(r'admin_examples_work_html_css/add_main_h1/$',
+        AdminExamplesHtmlCssH1Create.as_view(),
+        name='admin_examples_work_html_css-add_h1'),
+    url(r'admin_examples_work_html_css/add_main_h2/$',
+        AdminExamplesHtmlCssH2Create.as_view(),
+        name='admin_examples_work_html_css-add_h2'),
+    url(r'admin_examples_work_html_css/add_main_h3/$',
+        AdminExamplesHtmlCssH3Create.as_view(),
+        name='admin_examples_work_html_css-add_h3'),
+    url(r'admin_examples_work_html_css/add_main_h4/$',
+        AdminExamplesHtmlCssH4Create.as_view(),
+        name='admin_examples_work_html_css-add_h4'),
+    url(r'admin_examples_work_html_css/add_main_text/$',
+        AdminExamplesHtmlCssTextCreate.as_view(),
+        name='admin_examples_work_html_css-add_text'),
+    url(r'admin_examples_work_html_css/del_main_h1/(?P<pk>[\w]+)/$',
+        AdminExamplesHtmlCssH1Delete.as_view(),
+        name='admin_examples_work_html_css-del_h1'),
+    url(r'admin_examples_work_html_css/del_main_h2/(?P<pk>[\w]+)/$',
+        AdminExamplesHtmlCssH2Delete.as_view(),
+        name='admin_examples_work_html_css-del_h2'),
+    url(r'admin_examples_work_html_css/del_main_h3/(?P<pk>[\w]+)/$',
+        AdminExamplesHtmlCssH3Delete.as_view(),
+        name='admin_examples_work_html_css-del_h3'),
+    url(r'admin_examples_work_html_css/del_main_h4/(?P<pk>[\w]+)/$',
+        AdminExamplesHtmlCssH4Delete.as_view(),
+        name='admin_examples_work_html_css-del_h4'),
+    url(r'admin_examples_work_html_css/del_main_text/(?P<pk>[\w]+)/$',
+        AdminExamplesHtmlCssTextDelete.as_view(),
+        name='admin_examples_work_html_css-del_text'),
+    url(r'admin_examples_work_html_css/update_main_h1/(?P<pk>[\w]+)/$',
+        AdminExamplesHtmlCssH1Update.as_view(),
+        name='admin_examples_work_html_css-update_h1'),
+    url(r'admin_examples_work_html_css/update_main_h2/(?P<pk>[\w]+)/$',
+        AdminExamplesHtmlCssH2Update.as_view(),
+        name='admin_examples_work_html_css-update_h2'),
+    url(r'admin_examples_work_html_css/update_main_h3/(?P<pk>[\w]+)/$',
+        AdminExamplesHtmlCssH3Update.as_view(),
+        name='admin_examples_work_html_css-update_h3'),
+    url(r'admin_examples_work_html_css/update_main_h4/(?P<pk>[\w]+)/$',
+        AdminExamplesHtmlCssH4Update.as_view(),
+        name='admin_examples_work_html_css-update_h4'),
+    url(r'admin_examples_work_html_css/update_main_text/(?P<pk>[\w]+)/$',
+        AdminExamplesHtmlCssTextUpdate.as_view(),
+        name='admin_examples_work_html_css-update_text'),
 ]
