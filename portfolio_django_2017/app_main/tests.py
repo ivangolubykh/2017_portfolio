@@ -29,13 +29,13 @@ class TestMainPage(TestCase):
         self.assertIn('>Главная</a>', response.content.decode(),
                       msg='На странице отсутствует меню Главная')
         self.assertIn('>Примеры работ</a>', response.content.decode(),
-                      msg='На странице отсутствует меню Главная')
+                      msg='На странице отсутствует меню Примеры работ')
         self.assertIn('>Учёбы</a>', response.content.decode(),
-                      msg='На странице отсутствует меню Главная')
+                      msg='На странице отсутствует меню Учёбы')
         self.assertIn('>Работы</a>', response.content.decode(),
-                      msg='На странице отсутствует меню Главная')
+                      msg='На странице отсутствует меню Работы')
         self.assertIn('>Контакты</a>', response.content.decode(),
-                      msg='На странице отсутствует меню Главная')
+                      msg='На странице отсутствует меню Контакты')
 
     def test_main_page_futer(self):
         """ Тест на наличие всех обязательных текстов в футере:
@@ -44,15 +44,16 @@ class TestMainPage(TestCase):
         """
         response = self.client.get(reverse('main'))
         self.assertIn('8-921-355-04-60', response.content.decode(),
-                      msg='На странице отсутствует меню Главная')
+                      msg='На странице отсутствует мой номер телефона')
         self.assertIn('>ivan9@allworld.xyz</a>', response.content.decode(),
-                      msg='На странице отсутствует меню Главная')
+                      msg='На странице отсутствует моя почта')
         self.assertIn('>kreoya</a>', response.content.decode(),
-                      msg='На странице отсутствует меню Главная')
+                      msg='На странице отсутствует мой скайп')
         self.assertIn('Иван Борисович Голубых', response.content.decode(),
-                      msg='На странице отсутствует меню Главная')
+                      msg='На странице отсутствует моя ФИО '
+                          '(в футере должна быть)')
         self.assertIn('Все права защищены', response.content.decode(),
-                      msg='На странице отсутствует меню Главная')
+                      msg='На странице отсутствует автоское право')
 
     def test_weather_json(self):
         """ Тест на успешную выдчу данных в формате Json стрианицы погоды.
