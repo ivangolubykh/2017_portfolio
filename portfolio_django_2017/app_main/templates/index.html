@@ -6,7 +6,7 @@
 {% endblock %}
 {% block content  %}
     <div class="my_foto">
-        <img src="{% static 'general/img/my_foto_winter.jpg' %}">
+        <img src="{% static 'app_main/img/my_foto_winter.jpg' %}">
     </div>
     {% for h1 in object_list %}
         {% if h1.text %}
@@ -44,7 +44,7 @@
             <span id="weather_text">...</span>
         </div><!--
      --><div class="nothing"></div><!--
-     --><img class="weather_logo" src="{% static 'general/img/wundergroundLogo_4c_horz.jpg' %}">
+     --><img class="weather_logo" src="{% static 'app_main/img/wundergroundLogo_4c_horz.jpg' %}">
     </div>
 {% endblock %}
 
