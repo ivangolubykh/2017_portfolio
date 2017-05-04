@@ -31,7 +31,7 @@ urlpatterns = [
         as_view(url='django/profile_ig/')),
 ]
 urlpatterns += [
-    # url(starturl, include('app_main.urls')),
+    url(starturl, include('app_main.urls')),
 ]
 
 
@@ -42,4 +42,5 @@ if settings.DEBUG:
     import debug_toolbar
     urlpatterns += [
         url(r'^__debug__/', include(debug_toolbar.urls)),
+        url(starturl, include('app_admin_debug.urls')),
     ]

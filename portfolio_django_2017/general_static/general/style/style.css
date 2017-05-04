@@ -1,0 +1,590 @@
+/* font-family: "OpenSansRegular"; */
+@font-face {
+    font-family: "OpenSansRegular";
+    src: url("../fonts/OpenSansRegular/OpenSansRegular.eot");
+    src: url("../fonts/OpenSansRegular/OpenSansRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansRegular/OpenSansRegular.woff") format("woff"),
+    url("../fonts/OpenSansRegular/OpenSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansLight"; */
+@font-face {
+    font-family: "OpenSansLight";
+    src: url("../fonts/OpenSansLight/OpenSansLight.eot");
+    src: url("../fonts/OpenSansLight/OpenSansLight.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansLight/OpenSansLight.woff") format("woff"),
+    url("../fonts/OpenSansLight/OpenSansLight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "OpenSansSemiBold"; */
+@font-face {
+    font-family: "OpenSansSemiBold";
+    src: url("../fonts/OpenSansSemiBold/OpenSansSemiBold.eot");
+    src: url("../fonts/OpenSansSemiBold/OpenSansSemiBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansSemiBold/OpenSansSemiBold.woff") format("woff"),
+    url("../fonts/OpenSansSemiBold/OpenSansSemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+* {
+    font-weight: 400;
+    color: inherit;
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+    color: #ffffff;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    border: 0px;
+    background-color: #2361b0;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    text-align: justify;
+}
+
+.overfooter {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #ffffff;
+    text-align: center;
+    color: #000;
+    /* Чтобы текст в футере выделялся (z-index и position):*/
+    z-index: 1;
+    position: relative;
+}
+.box_block {
+    display: inline-block;
+    vertical-align: middle;
+}
+.box_block img{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+.footer_name {
+    height: 45px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    text-decoration: underline;
+}
+.footer_license {
+    height: 43px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+/* Display 320px AND 480px*/
+    html {
+        font-family: OpenSansLight;
+    }
+
+    .scroll_up_window {
+        width: 35px;
+    }
+    .scroll_up_button {
+        width: 35px;
+        font-size: 12px;
+    }
+    .triangle {
+        border: 10px solid transparent; /* Прозрачные границы */
+        border-top: 0px;
+        border-bottom: 15px solid white; /* Добавляем треугольник */
+    }
+
+    .navigation {
+        margin: 10px 0 0 0;
+        width: 100%;
+        font-size: 14px;
+    }
+    body .large_scrin_view {
+        display: none;
+        position: absolute;
+        margin-left: -1000px;
+        max-width: 500px;
+    }
+    .navigation .small_menu {
+        float: right;
+    }
+    .small_menu ul {
+        position: absolute;
+        margin: -1000px;
+        max-width: 500px;
+        -moz-transform: scale(0, 0) rotate(90deg); /* Для Firefox */
+        -ms-transform: scale(0, 0) rotate(90deg); /* Для IE */
+        -webkit-transform: scale(0, 0) rotate(90deg); /* Для Safari, Chrome, iOS */
+        -o-transform: scale(0, 0) rotate(90deg); /* Для Opera */
+        transform: scale(0, 0) rotate(90deg);
+        -webkit-transition: transform 0.9s;
+        -moz-transition: transform 0.9s;
+        -o-transition: transform 0.9s;
+        transition: transform 0.9s;
+        transition: transform 0.9s;
+    }
+    .small_menu label input {
+        position: absolute;
+        max-width: 500px;
+        margin: -1000px;
+    }
+    .small_menu label input + .hamburger {
+        width: 17px;
+        height: 14px;
+        background:linear-gradient(to bottom, #fff 0%, #fff 20%,
+          transparent 20%, transparent 40%, #fff 40%, #fff 60%,
+          transparent 60%, transparent 80%, #fff 80%, #fff 100%);
+
+    }
+    .small_menu label input:checked + .hamburger {
+        width: 17px;
+        height: 14px;
+        background:linear-gradient(45deg, transparent 0%, transparent 40%,
+          #d74141 40%, #d74141 60%, transparent 60%, transparent 100%),
+                   linear-gradient(-45deg, transparent 0%, transparent 40%,
+          #d74141 40%, #d74141 60%, transparent 60%, transparent 100%);
+    }
+    .small_menu label input:checked + .hamburger + ul {
+        display: block;
+        position: absolute;
+        z-index: 2;
+        color: black;
+        font-size: 18px;
+        padding: 4px;
+        background: #fff;
+        text-align: left;
+        width: 146px;
+        margin-top: 5px;
+        border-radius: 10px;
+        margin-left: -136px;
+        -moz-transform: scale(1, 1) rotate(0deg); /* Для Firefox */
+        -ms-transform: scale(1, 1) rotate(0deg); /* Для IE */
+        -webkit-transform: scale(1, 1) rotate(0deg); /* Для Safari, Chrome, iOS */
+        -o-transform: scale(1, 1) rotate(0deg); /* Для Opera */
+        transform: scale(1, 1) rotate(0deg);
+
+    }
+    .small_menu label input:checked + .hamburger + ul li {
+        border-top: solid 1px;
+        border-color: #808080;
+    }
+    .small_menu label input:checked + .hamburger + ul li:first-child {
+        border-top: solid 0px;
+    }
+
+    .navigation > ul {
+        position: absolute;
+        max-width: 500px;
+        margin: -1000px;
+    }
+
+    .breadcrumbs {
+        width: calc(100% - 47px);
+        margin: 0  15px;
+        font-size: 14px;
+        text-align: left;
+        float: left;
+    }
+
+    body p, body h1, body h2, body h3, body h4 {
+        margin: 20px 0px;
+    }
+
+    article {
+        margin: 20px 0 45px 0;
+    }
+
+    .weather {
+        font-size: 16px;
+
+    }
+    .weather_text{
+        width: calc(100% - 90px)
+    }
+    .weather_logo {
+        width: 230px;
+        margin: 8px calc(50% - 115px);
+    }
+
+    .box_block {
+        margin: 0 5px;
+    }
+}
+
+
+@media screen and (max-width: 370px) {
+/* Display 320px only */
+    body h1 {
+        font-family: OpenSansRegular;
+        font-size: 18px;
+    }
+    body p {
+        font-size: 18px;
+    }
+
+    .scroll_up_button {
+        bottom: 140px;
+    }
+
+    .puzzle_button{
+        text-align: left;
+    }
+    .puzzle_button > button {
+        font-size: 14px;
+        width: 195px;
+        height: 33px;
+        margin: 10px 0;
+    }
+
+    .overfooter {
+        min-height: calc(100% - 133px);
+        padding: 0px 20px 133px 20px;
+    }
+
+    footer {
+        height: 133px;
+        margin-top: -133px;
+        font-size: 18px;
+    }
+    .box_block, .footer_name {
+        height: 30px;
+    }
+    .footer_contact {
+        height: 60px;
+    }
+    .footer_license {
+        font-size: 14px;
+        height: 43px;
+    }
+
+}
+
+@media screen and (min-width: 371px) and (max-width: 480px) {
+/* Display 321-480px only */
+    body h1 {
+        font-family: OpenSansRegular;
+        font-size: 24px;
+    }
+
+    body p {
+        font-size: 18px;
+    }
+
+    .scroll_up_button {
+        bottom: 183px;
+    }
+
+    .puzzle_button{
+        text-align: right;
+    }
+    .puzzle_button > button {
+        font-size: 20px;
+        width: 275px;
+        height: 45px;
+        margin: 20px 0;
+    }
+
+    .overfooter {
+        min-height: calc(100% - 178px);
+        padding: 0px 20px 178px 20px;
+    }
+
+    footer {
+        height: 178px;
+        margin-top: -178px;
+        font-size: 20px;
+    }
+    .box_block {
+        height: 45px;
+    }
+    .footer_contact {
+        height: 90px;
+    }
+    .footer_name, .footer_license {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 481px) {
+/* Display >480px */
+    html {
+        font-family: OpenSansRegular;
+    }
+
+    .scroll_up_window {
+        width: 55px;
+    }
+    .scroll_up_button {
+        bottom: 140px;
+        width: 55px;
+        font-size: 16px;
+    }
+    .triangle {
+        border: 15px solid transparent; /* Прозрачные границы */
+        border-top: 0px;
+        border-bottom: 25px solid white; /* Добавляем треугольник */
+    }
+
+    header {
+        text-align: center; /* Чтобы дочернее меню было по центру */
+    }
+
+    .navigation {
+        margin: 39px 0 0 0;
+    }
+    .navigation .small, .navigation .small_menu {
+        position: absolute;
+        max-width: 500px;
+        margin: -1000px;
+    }
+    .navigation ul {
+        display: inline-block;
+        padding: 0px;
+        vertical-align: middle;
+    }
+    .navigation ul li {
+        padding: 0px 25px;
+        display: inline-block;
+        font-size: 21px;
+        border-left: solid 2px;
+        height: 34px;
+        vertical-align: middle;
+    }
+    .navigation ul li:first-child {
+        border-left: solid 0px;
+    }
+
+    .breadcrumbs {
+        width: 100%;
+        margin: 15px  15px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .my_foto {
+        max-width: 286px;
+    }
+    body h1 {
+        font-size: 30px;
+    }
+    body p {
+        font-size: 24px;
+    }
+    body p, body h1, body h2, body h3, body h4 {
+        margin: 35px 0px;
+    }
+
+    article {
+        margin: 45px 0 75px 0;
+    }
+
+    .puzzle_button{
+        text-align: right;
+    }
+    .puzzle_button > button {
+        font-size: 24px;
+        width: 310px;
+        height: 50px;
+        margin: 25px 0;
+    }
+
+    .weather {
+        font-size: 20px;
+    }
+    .weather_text{
+        width: calc(100% - 80px - 30% - 30px)
+    }
+    .weather_logo {
+        width: 230px;
+        float: right;
+        margin: 8px 15px;
+    }
+
+    .overfooter {
+        min-height: calc(100% - 133px);
+        padding: 0px 20px 133px 20px;
+    }
+
+    footer {
+        height: 133px;
+        margin-top: -133px;
+        font-size: 20px;
+    }
+    .box_block {
+        margin: 0 15px;
+        height: 45px;
+    }
+    .footer_contact {
+        height: 45px;
+    }
+    .footer_license {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 900px) {
+/* Display 480px - 900px */
+    .navigation ul li {
+        padding: 0px 5px;
+        display: inline-block;
+        font-size: 14px;
+        border-left: solid 1px;
+        height: 20px;
+        vertical-align: middle;
+    }
+
+    .weather {
+        font-size: 16px;
+    }
+    .weather_logo {
+        width: 30%;
+        margin: 8px 15px;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 640px) {
+/* Display 480px - 640px */
+    .scroll_up_button {
+        bottom: 183px;
+    }
+    .overfooter {
+        min-height: calc(100% - 178px);
+        padding: 0px 20px 178px 20px;
+    }
+
+    footer {
+        height: 178px;
+        margin-top: -178px;
+        font-size: 20px;
+    }
+    .box_block {
+        height: 45px;
+        /*width: calc(50% - 35px);*/
+    }
+    .footer_contact {
+        height: 90px;
+    }
+    .footer_name, .footer_license {
+        font-size: 18px;
+    }
+}
+
+.scroll_up_window {
+    position: absolute; /* фиксированная позиция */
+    right: 20px;
+    bottom: 0px;
+    top: 100px;
+    height: calc(100% - 100px);
+}
+.scroll_up_button {
+    position: fixed; /* фиксированная позиция */
+    margin: 0;
+    text-align: center;
+    display: none;
+    z-index: 1;
+    background: rgba(35,97,176,0.7);
+}
+.triangle {
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+}
+
+
+.navigation ul li a {
+    vertical-align: middle;
+}
+.navigation {
+	display: inline-block;
+	line-height: 1;
+}
+
+.nothing {
+	display: inline-block;
+	height: 100%;
+	width: 0;
+	vertical-align: middle;
+}
+
+.breadcrumbs a {
+    text-decoration: underline;
+}
+
+body input, body select, body textarea {
+    color: black;
+}
+
+p {
+    text-indent: 1em;
+}
+
+.my_foto {
+    float: left;
+    margin: 0 15px 0 0;
+    width: 40%;
+}
+.my_foto > img {
+    border-radius: 50%;
+    box-shadow: 0 0 55px -5px white;
+    width: 100%;
+    height: 100%;
+}
+
+article {
+    min-height: 300px;
+}
+
+.puzzle_button{
+    width: 100%;
+}
+.puzzle_button > button {
+    background: #d74141;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 black;
+}
+
+.weather {
+    width: 100%;
+    min-height: 66px;
+    background: white;
+    margin: 25px 0 25px 0;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    vertical-align: middle;
+}
+.rainfall {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 8px 15px;
+    vertical-align: middle;
+}
+.weather_text {
+    display: inline-block;
+    vertical-align: middle;
+}
+.weather_text span {
+    line-height: 1.2em;
+}
+.weather_logo {
+    display: inline-block;
+    max-width: 230px;
+    vertical-align: middle;
+}

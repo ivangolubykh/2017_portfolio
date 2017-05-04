@@ -37,7 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Добавляю свои приложения проекта:
+    'app_main',
 ]
+
+# Админка будет только в режиме отладки:
+if DEBUG:
+    INSTALLED_APPS += [
+        'app_admin_debug',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -165,8 +173,8 @@ LOGGING = {
 if DEBUG:
     pass
     # автозапуск модуля панельки:
-    MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    # MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
     # включение панельки в список установленых приложений:
-    INSTALLED_APPS += ('debug_toolbar',)
+    # INSTALLED_APPS += ('debug_toolbar',)
     # IP-адрес браузера, а не сервера:
-    INTERNAL_IPS = ('127.0.0.1',)
+    # INTERNAL_IPS = ('127.0.0.1',)

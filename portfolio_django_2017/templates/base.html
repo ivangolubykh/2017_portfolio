@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	<title>{% block title %}{% endblock %} - Портфолио Ивана Голубых, Django/Python программиста.</title>
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'general/favicon/favicon-16x16.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'general/favicon/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="96x96" href="{% static 'general/favicon/favicon-64x64.png' %}">
+	<link rel="stylesheet" href="{% static 'general/style/reset.css' %}">
+	<link rel="stylesheet" href="{% static 'general/style/style.css' %}">
+	<script type="text/javascript" src="{% static 'general/js/jquery-3.2.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'general/js/all_pages.js' %}"></script>
+	<style>
+		body {
+			background-image: url({% static '/general/img/fon-01.jpg' %})
+		}
+	</style>
+</head>
+<body>
+<div class="scroll_up_window">
+	<div class="scroll_up_button">
+		<a href="#"><strong class="triangle"></strong><br><strong>вверх</strong></a>
+	</div>
+</div>
+<div class="overfooter">
+	<header>
+		<div class="navigation">
+			<div class="nothing"></div><!--
+		 --><div class="small">
+				{% if crumbs %}
+					<div class="breadcrumbs">
+						{{ crumbs|safe }}
+					</div>
+				{% endif %}
+		    </div>
+			<div class="small_menu">
+				<label><input type="checkbox" name="">
+					<div class="hamburger"></div>
+					{% include 'base_main_menu.html' %}
+				</label>
+			</div>
+			<div class="nothing"></div><!--
+		 -->{% include 'base_main_menu.html' %}
+		</div>
+		{% if crumbs %}
+			<div class="large_scrin_view breadcrumbs">
+				{{ crumbs|safe }}
+			</div>
+		{% endif %}
+	</header>
+	<article>
+		{% block content %}
+		{% endblock %}
+	</article>
+</div>
+<footer>
+	<div class="footer_contact">
+		<div class="box_block"><div class="nothing"></div>
+			<img src="{% static 'general/img/phone-01.gif' %}">8-921-355-04-60
+		</div>
+		<div class="box_block"><div class="nothing"></div>
+			<img src="{% static 'general/img/mail-01.gif' %}"><a href="mailto:ivan9@allworld.xyz">ivan9@allworld.xyz</a>
+		</div>
+		<div class="box_block"><div class="nothing"></div>
+			<img src="{% static 'general/img/skype-01.gif' %}"><a href="skype:kreoya">kreoya</a>
+		</div>
+	</div>
+	<div class="footer_name"><div class="nothing"></div>Иван Борисович Голубых
+	</div>
+	<div class="footer_license"><div class="nothing"></div>
+		&copy; Все права защищены 2017
+	</div>
+</footer>
+{% block EndJScript %}
+{% endblock %}
+</body>
+</html>

@@ -4,13 +4,14 @@
 
 
 # Применение изменений в БД:
-#./manage.py makemigrations mainapp
-##./manage.py migrate mainapp
+#./manage.py makemigrations app_main
+##./manage.py migrate app_main
 #./manage.py migrate
 
-# Сохранение БД приложения indexapp в формате JSON с отступами 2 пробела:
+# Сохранение БД приложения (фикстуры) app_main в формате JSON с отступами
+# 2 пробела:
 #mkdir ./indexapp/fixtures
-#./manage.py dumpdata mainapp --indent 2 > ./mainapp/fixtures/startdata.json
+#./manage.py dumpdata app_main --indent 2 > ./app_main/fixtures/startdata.json
 
 #Восстановление БД:
 #./manage.py loaddata startdata.json
