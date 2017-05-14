@@ -29,8 +29,8 @@ def crumbs(object):
     return html_str
 
 
-# Главная страница:
 class MainListView(ListView):
+    '''Главная страница:'''
     # model = MainText
     crumbs_page_name = 'Главная'
     crumbs_page_urlname = 'main'
@@ -46,7 +46,7 @@ class MainListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # создаю сессию для подрузки данных Ajax-ом только для своих
+        # Создаю сессию для подрузки данных Ajax-ом только для своих
         # посетителей:
         if 'session_exist' not in self.request.session or\
                 not self.request.session['session_exist']:
@@ -54,9 +54,10 @@ class MainListView(ListView):
         return context
 
 
-# Генерация Json с погодой для аякса на главной странице.
 def weather_json(request):
-    # Буду обновлять БД не чаще 1 раза в 15 минут (900 секунд):
+    '''Генерация Json с погодой для аякса на главной странице.
+    Буду обновлять БД не чаще 1 раза в 15 минут (900 секунд):
+    '''
     TIME_DELTA_TO_UPDATE_WEATHER = 900
     content = {}
     if 'session_exist' in request.session and request.session['session_exist']:
@@ -112,29 +113,18 @@ def weather_json(request):
     return JsonResponse(content)
 
 
-# Страница Примеры Работ (общая):
-def examples_work(request):
-    return render_to_response("examples_work.html")
-
-
-# Страница Примеры Работ:
 class ExamplesWorkListView(ListView):
+    '''Страница Примеры Работ (общая):'''
     crumbs_page_name = 'Примеры работ'
     crumbs_page_urlname = 'examples_work'
     crumbs_up = MainListView
     # model = MainText
-    queryset = MainHeader1Text.objects.order_by('ordinal').\
-        prefetch_related('mainheader2text_set',
-                         'mainheader2text_set__mainheader3text_set',
-                         'mainheader2text_set__mainheader3text_set__'
-                         'mainheader4text_set',
-                         'mainheader2text_set__mainheader3text_set__'
-                         'mainheader4text_set__maintext_set')
+    queryset = ''
     template_name = 'examples_work.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # создаю сессию для подрузки данных Ajax-ом только для своих
+        # Создаю сессию для подрузки данных Ajax-ом только для своих
         # посетителей:
         if 'session_exist' not in self.request.session or\
                 not self.request.session['session_exist']:
