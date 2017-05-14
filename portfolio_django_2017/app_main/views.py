@@ -1,6 +1,7 @@
 # from django.shortcuts import render
 from django.views.generic.list import ListView
-from .models import MainHeader1Text, Weather_For_Json
+from .models import MainHeader1Text, Weather_For_Json,\
+    ExamplesPythonHeaderorList1Text
 import requests
 from django.http import JsonResponse
 from portfolio_django_2017.settings import STATIC_URL
@@ -8,7 +9,6 @@ from django.db import transaction
 from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
-
 
 
 def crumbs(object):
@@ -121,6 +121,32 @@ class ExamplesWorkListView(ListView):
     # model = MainText
     queryset = ''
     template_name = 'examples_work.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Создаю сессию для подрузки данных Ajax-ом только для своих
+        # посетителей:
+        if 'session_exist' not in self.request.session or\
+                not self.request.session['session_exist']:
+            self.request.session['session_exist'] = True
+        context['crumbs'] = crumbs(__class__)
+        return context
+
+
+class ExamplesWorkPythonListView(ListView):
+    '''Страница Примеры работ на Питоне и Джанго:'''
+    # model = MainText
+    crumbs_page_name = 'Python'
+    crumbs_page_urlname = 'examples_work_python_django'
+    crumbs_up = ExamplesWorkListView
+    queryset = ExamplesPythonHeaderorList1Text.objects.order_by('ordinal').\
+        prefetch_related('examplespythonheaderorlist2text_set',
+                         'examplespythonheaderorlist2text_set__examplespythonheaderorlist3text_set',
+                         'examplespythonheaderorlist2text_set__examplespythonheaderorlist3text_set__'
+                         'examplespythonheaderorlist4text_set',
+                         'examplespythonheaderorlist2text_set__examplespythonheaderorlist3text_set__'
+                         'examplespythonheaderorlist4text_set__examplespythontext_set')
+    template_name = 'examples_work_python_django.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
