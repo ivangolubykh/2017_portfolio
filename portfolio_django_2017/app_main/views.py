@@ -7,6 +7,8 @@ from portfolio_django_2017.settings import STATIC_URL
 from django.db import transaction
 from django.utils import timezone
 from django.core.urlresolvers import reverse
+from django.shortcuts import render_to_response
+
 
 
 def crumbs(object):
@@ -108,6 +110,11 @@ def weather_json(request):
     content['weather_text'] = 'Данные взяты с сайта allworld.xyz и' \
                               ' предназначены только для его посетителей.'
     return JsonResponse(content)
+
+
+# Страница Примеры Работ (общая):
+def examples_work(request):
+    return render_to_response("examples_work.html")
 
 
 # Страница Примеры Работ:
