@@ -5,6 +5,22 @@
 {% block breadcrumbs %}
 {% endblock %}
 {% block content  %}
-
-
+    <div class="main_examples_img">
+        <a href="{% url 'examples_work' %}">
+            <img src="{% static 'app_main/img/python_django_286.gif' %}">
+            <p>Python/Django</p>
+        </a>
+    </div><!--
+ --><div class="main_examples_img">
+        <a href="{% url 'examples_work' %}">
+            <img src="{% static 'app_main/img/java_script_286.gif' %}">
+            <p>JavaScript</p>
+        </a>
+    </div><!--
+ --><div class="main_examples_img">
+        <a href="{% url 'examples_work' %}">
+            <img src="{% static 'app_main/img/html_css_286.gif' %}">
+            <p>HTML/CSS</p>
+        </a>
+    </div>
 {% endblock %}

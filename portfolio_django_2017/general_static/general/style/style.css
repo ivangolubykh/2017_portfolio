@@ -209,6 +209,12 @@ footer {
         margin: 20px 0 45px 0;
     }
 
+    .main_examples_img {
+        margin: 55px auto;
+        width: 75%;
+    }
+
+
     .weather {
         font-size: 16px;
 
@@ -376,9 +382,15 @@ footer {
         text-align: left;
     }
 
-    .my_foto {
+    .my_foto, .main_examples_img {
         max-width: 286px;
     }
+    .main_examples_img {
+        display: inline-block;
+        margin: 15px 5%;
+        width: 23%;
+    }
+
     body h1 {
         font-size: 30px;
     }
@@ -448,6 +460,10 @@ footer {
         vertical-align: middle;
     }
 
+    .main_examples_img p {
+        font-size: 18px;
+    }
+
     .weather {
         font-size: 16px;
     }
@@ -467,6 +483,10 @@ footer {
         padding: 0px 20px 178px 20px;
     }
 
+    .main_examples_img p {
+        font-size: 14px;
+    }
+
     footer {
         height: 178px;
         margin-top: -178px;
@@ -479,7 +499,7 @@ footer {
     .footer_contact {
         height: 90px;
     }
-    .footer_name, .footer_license {
+    .footer_name, .footer_license{
         font-size: 18px;
     }
 }
@@ -538,11 +558,17 @@ p {
     margin: 0 15px 0 0;
     width: 40%;
 }
-.my_foto > img {
+.my_foto > img, .main_examples_img img {
     border-radius: 50%;
     box-shadow: 0 0 55px -5px white;
     width: 100%;
     height: 100%;
+}
+.main_examples_img p {
+    text-indent: 0;
+    text-align: center;
+    text-decoration: underline;
+    margin: 10px 0;
 }
 
 article {
