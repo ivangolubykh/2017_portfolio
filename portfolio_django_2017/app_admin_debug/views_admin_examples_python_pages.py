@@ -11,19 +11,21 @@ class AdminExamplesPythonListView(ListView):
     template_name = 'admin_examples_work_python.html'
 
 
-class AdminExamplesPythonH1Create(CreateView):
+class AdminExamplesPythonCreate(CreateView):
     model = ExamplesPython
-    fields = ['ordinal', 'text']
+    fields = ['ordinal', 'name_project', 'bimage', 'net_address',
+              'git_address','text']
     template_name = 'admin_main_create.html'
 
 
-class AdminExamplesPythonH1Delete(DeleteView):
+class AdminExamplesPythonDelete(DeleteView):
     model = ExamplesPython
-    success_url = reverse_lazy('admin')
+    success_url = reverse_lazy('admin_examples_work_python')
     template_name = 'admin_main_delete.html'
 
 
-class AdminExamplesPythonH1Update(UpdateView):
+class AdminExamplesPythonUpdate(UpdateView):
     model = ExamplesPython
+    fields = ['ordinal', 'name_project', 'bimage', 'net_address',
+              'git_address','text']
     template_name = 'admin_main_update.html'
-    fields = ['ordinal', 'text']

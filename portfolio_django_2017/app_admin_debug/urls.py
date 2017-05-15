@@ -18,8 +18,8 @@ from .views import AdminListView, H1Create, H2Create, H3Create, H4Create, \
     TextCreate, H1Delete, H2Delete, H3Delete, H4Delete, TextDelete, H1Update,\
     H2Update, H3Update, H4Update, TextUpdate,\
     AdminExamplesPythonListView,\
-    AdminExamplesPythonH1Create, AdminExamplesPythonH1Delete,\
-    AdminExamplesPythonH1Update,\
+    AdminExamplesPythonCreate, AdminExamplesPythonDelete,\
+    AdminExamplesPythonUpdate,\
     AdminExamplesJsListView, \
     AdminExamplesJsH1Create, AdminExamplesJsH2Create, \
     AdminExamplesJsH3Create, AdminExamplesJsH4Create, \
@@ -93,15 +93,15 @@ urlpatterns += [
     url(r'^admin_examples_work_python/$',
         AdminExamplesPythonListView.as_view(),
         name='admin_examples_work_python'),
-    url(r'admin_examples_work_python/add_main_h1/$',
-        AdminExamplesPythonH1Create.as_view(),
-        name='admin_examples_work_python-add_h1'),
-    url(r'admin_examples_work_python/del_main_h1/(?P<pk>[\w]+)/$',
-        AdminExamplesPythonH1Delete.as_view(),
-        name='admin_examples_work_python-del_h1'),
-    url(r'admin_examples_work_python/update_main_h1/(?P<pk>[\w]+)/$',
-        AdminExamplesPythonH1Update.as_view(),
-        name='admin_examples_work_python-update_h1'),
+    url(r'admin_examples_work_python/add/$',
+        AdminExamplesPythonCreate.as_view(),
+        name='admin_examples_work_python-add'),
+    url(r'admin_examples_work_python/del/(?P<pk>[\w]+)/$',
+        AdminExamplesPythonDelete.as_view(),
+        name='admin_examples_work_python-del'),
+    url(r'admin_examples_work_python/update/(?P<pk>[\w]+)/$',
+        AdminExamplesPythonUpdate.as_view(),
+        name='admin_examples_work_python-update'),
 ]
 
 # Блок страниц админки для страницы примеров работ на JavaScript:
