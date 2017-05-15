@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from PIL import Image
 ''' Предусмотрел в БД 4 уровня заголовков или списков, т.к. в
  перспективе структура электронного резюмерезюме может сильно меняться.
 '''
@@ -131,6 +132,42 @@ class ExamplesPython(models.Model):
         super(__class__, self).delete(*args, **kwargs)
         # Потом удаляем сам файл
         storage.delete(filepath)
+
+    def save(self, *args, **kwargs):
+        # Максимальный размер изображения по большей стороне
+        _MAX_SIZE = 286
+        # Проверяю, есть ли в БД уже этот объект (радактируем старое или
+        # создаём новое?):
+        old_obj = False
+        try:
+            old_obj = __class__.objects.get(pk=self.pk)
+        except Exception:
+            pass
+        # Сначала - обычное сохранение
+        super(__class__, self).save(*args, **kwargs)
+        if old_obj and old_obj.image.path != self.image.path:
+            # удаляю старый файл, если он был обновлён на новый:
+            storage, filepath = old_obj.image.storage, old_obj.image.path
+            storage.delete(filepath)
+        # Если добавиласть новая картинка или изменилась старая, то создаю
+        # уменьшенную копию:
+        if not old_obj or (old_obj and
+                           old_obj.image.path != self.image.path):
+            filepath = self.image.path
+            width = self.image.width
+            height = self.image.height
+            max_size = max(width, height)
+            image = Image.open(filepath)
+            # Может, и не надо ничего менять?
+            if max_size > _MAX_SIZE:
+                # resize - безопасная функция, она создаёт новый объект, а не
+                # вносит изменения в исходный, поэтому так
+                image = image.resize((round(width / max_size * _MAX_SIZE),
+                                      round(height / max_size * _MAX_SIZE)),
+                                     Image.ANTIALIAS
+                                     )
+            # И не забыть сохраниться
+            image.save(filepath)
 # #################
 # Окончание группы классов модели для страницы примеров работ на питоне.
 # #################
