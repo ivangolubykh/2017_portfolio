@@ -51,7 +51,7 @@ class ExamplesPython(models.Model):
         )
 
     # Картинка проекта, если есть.
-    bimage = models.ImageField(
+    image = models.ImageField(
         # Куда загружать эти картинки:
         upload_to='examples_python_images/',
         # При blank=True поле может быть пустым
@@ -124,7 +124,13 @@ class ExamplesPython(models.Model):
     def get_absolute_url(self):
         return reverse('admin_examples_work_python')
 
-
+    def delete(self, *args, **kwargs):
+        # До удаления записи получаем необходимую информацию
+        storage, filepath = self.image.storage, self.image.path
+        # Удаляем сначала модель ( объект )
+        super(__class__, self).delete(*args, **kwargs)
+        # Потом удаляем сам файл
+        storage.delete(filepath)
 # #################
 # Окончание группы классов модели для страницы примеров работ на питоне.
 # #################

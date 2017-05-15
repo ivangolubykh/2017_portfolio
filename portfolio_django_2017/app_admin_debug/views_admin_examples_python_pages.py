@@ -13,7 +13,7 @@ class AdminExamplesPythonListView(ListView):
 
 class AdminExamplesPythonCreate(CreateView):
     model = ExamplesPython
-    fields = ['ordinal', 'name_project', 'bimage', 'net_address',
+    fields = ['ordinal', 'name_project', 'image', 'net_address',
               'git_address','text']
     template_name = 'admin_main_create.html'
 
@@ -26,6 +26,6 @@ class AdminExamplesPythonDelete(DeleteView):
 
 class AdminExamplesPythonUpdate(UpdateView):
     model = ExamplesPython
-    fields = ['ordinal', 'name_project', 'bimage', 'net_address',
+    fields = ['ordinal', 'name_project', 'image', 'net_address',
               'git_address','text']
     template_name = 'admin_main_update.html'

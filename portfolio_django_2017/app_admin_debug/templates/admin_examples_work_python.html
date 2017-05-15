@@ -9,14 +9,14 @@
     <h1>Временная страница админки примеров работ на питоне. Доступна только в режиме отладки для наполнения БД.</h1>
     <p>Тексты страницы примеров работ на питоне здесь:</p>
     <br>
-    {% for obj in object_list %}
+    {% for obj in object_list|dictsortreversed:"ordinal" %}
         <hr>
         <p><a style="color:#e2afaf;" href="{% url 'admin_examples_work_python-del' obj.id%}">del</a></p>
 <p><i>№</i> <a href="{% url 'admin_examples_work_python-update' obj.id%}">{{obj.ordinal}}</a></p>
 <p><i>Имя проекта:</i> {{obj.name_project}}</p>
 <p><i>Картинка:</i>
-    {% if obj.bimage %}
-        <img src="{{ MEDIA_URL }}{{obj.bimage}}">
+    {% if obj.image %}
+        <img src="{{ MEDIA_URL }}{{obj.image}}">
     {% else %}
         не загружена.
     {% endif %}
