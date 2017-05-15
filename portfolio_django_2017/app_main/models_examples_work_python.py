@@ -1,9 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from PIL import Image
-''' Предусмотрел в БД 4 уровня заголовков или списков, т.к. в
- перспективе структура электронного резюмерезюме может сильно меняться.
-'''
 
 
 # #################
