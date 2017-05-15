@@ -7,13 +7,13 @@ from django.core.urlresolvers import reverse_lazy
 
 # Пдминка текстов для страницы примеров работ на питоне:
 class AdminExamplesPythonListView(ListView):
-    queryset = ExamplesPython.objects.order_by('ordinal')
+    queryset = ExamplesPython.objects.order_by('ordinal').reverse()
     template_name = 'admin_examples_work_python.html'
 
 
 class AdminExamplesPythonCreate(CreateView):
     model = ExamplesPython
-    fields = ['ordinal', 'name_project', 'image', 'net_address',
+    fields = ['ordinal', 'name_project', 'image_file', 'net_address',
               'git_address', 'text']
     template_name = 'admin_main_create.html'
 
@@ -26,6 +26,6 @@ class AdminExamplesPythonDelete(DeleteView):
 
 class AdminExamplesPythonUpdate(UpdateView):
     model = ExamplesPython
-    fields = ['ordinal', 'name_project', 'image', 'net_address',
+    fields = ['ordinal', 'name_project', 'image_file', 'net_address',
               'git_address', 'text']
     template_name = 'admin_main_update.html'

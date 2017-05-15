@@ -49,7 +49,7 @@ class ExamplesPython(models.Model):
         )
 
     # Картинка проекта, если есть.
-    image = models.ImageField(
+    image_file = models.ImageField(
         # Куда загружать эти картинки:
         upload_to='examples_python_images/',
         # При blank=True поле может быть пустым
@@ -123,12 +123,13 @@ class ExamplesPython(models.Model):
         return reverse('admin_examples_work_python')
 
     def delete(self, *args, **kwargs):
-        # До удаления записи получаем необходимую информацию
-        storage, filepath = self.image.storage, self.image.path
-        # Удаляем сначала модель ( объект )
+        if self.image_file:
+            # До удаления записи получаем необходимую информацию
+            storage, filepath = self.image_file.storage, self.image_file.path
+            # Потом удаляем сам файл
+            storage.delete(filepath)
+        # Удаляем запись в БД (объект)
         super(__class__, self).delete(*args, **kwargs)
-        # Потом удаляем сам файл
-        storage.delete(filepath)
 
     def save(self, *args, **kwargs):
         # Максимальный размер изображения по большей стороне
@@ -142,29 +143,39 @@ class ExamplesPython(models.Model):
             pass
         # Сначала - обычное сохранение
         super(__class__, self).save(*args, **kwargs)
-        if old_obj and old_obj.image.path != self.image.path:
-            # удаляю старый файл, если он был обновлён на новый:
-            storage, filepath = old_obj.image.storage, old_obj.image.path
+        if old_obj and old_obj.image_file\
+                and ((not self.image_file) or
+                     (old_obj.image_file.path != self.image_file.path)
+                     ):
+            # удаляю старый файл, если он был стёрт или обновлён на новый:
+            storage = old_obj.image_file.storage
+            filepath = old_obj.image_file.path
             storage.delete(filepath)
         # Если добавиласть новая картинка или изменилась старая, то создаю
         # уменьшенную копию:
-        if not old_obj or (old_obj and
-                           old_obj.image.path != self.image.path):
-            filepath = self.image.path
-            width = self.image.width
-            height = self.image.height
+        if self.image_file\
+                and (not old_obj or
+                     not old_obj.image_file or
+                     (old_obj.image_file and
+                      old_obj.image_file.path != self.image_file.path
+                      )
+                     ):
+            filepath = self.image_file.path
+            width = self.image_file.width
+            height = self.image_file.height
             max_size = max(width, height)
-            image = Image.open(filepath)
+            image_file = Image.open(filepath)
             # Может, и не надо ничего менять?
             if max_size > _MAX_SIZE:
                 # resize - безопасная функция, она создаёт новый объект, а не
                 # вносит изменения в исходный, поэтому так
-                image = image.resize((round(width / max_size * _MAX_SIZE),
-                                      round(height / max_size * _MAX_SIZE)),
-                                     Image.ANTIALIAS
-                                     )
+                image_file = image_file.\
+                    resize((round(width / max_size * _MAX_SIZE),
+                            round(height / max_size * _MAX_SIZE)),
+                           Image.ANTIALIAS
+                           )
             # И не забыть сохраниться
-            image.save(filepath)
+                image_file.save(filepath)
 # #################
 # Окончание группы классов модели для страницы примеров работ на питоне.
 # #################
