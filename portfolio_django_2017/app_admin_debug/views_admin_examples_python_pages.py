@@ -1,114 +1,31 @@
 # from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from app_main.models import \
-    ExamplesPythonHeaderorList1Text, ExamplesPythonHeaderorList2Text,\
-    ExamplesPythonHeaderorList3Text, ExamplesPythonHeaderorList4Text,\
-    ExamplesPythonText
+from app_main.models import ExamplesPython
 from django.core.urlresolvers import reverse_lazy
 
 
 # Пдминка текстов для страницы примеров работ на питоне:
 class AdminExamplesPythonListView(ListView):
-    queryset = ExamplesPythonHeaderorList1Text.objects.order_by('ordinal'). \
-        prefetch_related('examplespythonheaderorlist2text_set',
-                         'examplespythonheaderorlist2text_set__'
-                         'examplespythonheaderorlist3text_set',
-                         'examplespythonheaderorlist2text_set__'
-                         'examplespythonheaderorlist3text_set__'
-                         'examplespythonheaderorlist4text_set',
-                         'examplespythonheaderorlist2text_set__'
-                         'examplespythonheaderorlist3text_set__'
-                         'examplespythonheaderorlist4text_set__'
-                         'examplespythontext_set')
+    queryset = ExamplesPython.objects.order_by('ordinal').reverse()
     template_name = 'admin_examples_work_python.html'
 
 
-class AdminExamplesPythonH1Create(CreateView):
-    model = ExamplesPythonHeaderorList1Text
-    fields = ['ordinal', 'text']
+class AdminExamplesPythonCreate(CreateView):
+    model = ExamplesPython
+    fields = ['ordinal', 'name_project', 'image_file', 'net_address',
+              'git_address', 'text']
     template_name = 'admin_main_create.html'
 
 
-class AdminExamplesPythonH2Create(CreateView):
-    model = ExamplesPythonHeaderorList2Text
-    fields = ['ordinal', 'text', 'up']
-    template_name = 'admin_main_create.html'
-
-
-class AdminExamplesPythonH3Create(CreateView):
-    model = ExamplesPythonHeaderorList3Text
-    fields = ['ordinal', 'text', 'up']
-    template_name = 'admin_main_create.html'
-
-
-class AdminExamplesPythonH4Create(CreateView):
-    model = ExamplesPythonHeaderorList4Text
-    fields = ['ordinal', 'text', 'up']
-    template_name = 'admin_main_create.html'
-
-
-class AdminExamplesPythonTextCreate(CreateView):
-    model = ExamplesPythonText
-    fields = ['ordinal', 'text', 'up']
-    template_name = 'admin_main_create.html'
-
-
-class AdminExamplesPythonH1Delete(DeleteView):
-    model = ExamplesPythonHeaderorList1Text
-    success_url = reverse_lazy('admin')
+class AdminExamplesPythonDelete(DeleteView):
+    model = ExamplesPython
+    success_url = reverse_lazy('admin_examples_work_python')
     template_name = 'admin_main_delete.html'
 
 
-class AdminExamplesPythonH2Delete(DeleteView):
-    model = ExamplesPythonHeaderorList2Text
-    success_url = reverse_lazy('admin')
-    template_name = 'admin_main_delete.html'
-
-
-class AdminExamplesPythonH3Delete(DeleteView):
-    model = ExamplesPythonHeaderorList3Text
-    success_url = reverse_lazy('admin')
-    template_name = 'admin_main_delete.html'
-
-
-class AdminExamplesPythonH4Delete(DeleteView):
-    model = ExamplesPythonHeaderorList4Text
-    success_url = reverse_lazy('admin')
-    template_name = 'admin_main_delete.html'
-
-
-class AdminExamplesPythonTextDelete(DeleteView):
-    model = ExamplesPythonText
-    success_url = reverse_lazy('admin')
-    template_name = 'admin_main_delete.html'
-
-
-class AdminExamplesPythonH1Update(UpdateView):
-    model = ExamplesPythonHeaderorList1Text
+class AdminExamplesPythonUpdate(UpdateView):
+    model = ExamplesPython
+    fields = ['ordinal', 'name_project', 'image_file', 'net_address',
+              'git_address', 'text']
     template_name = 'admin_main_update.html'
-    fields = ['ordinal', 'text']
-
-
-class AdminExamplesPythonH2Update(UpdateView):
-    model = ExamplesPythonHeaderorList2Text
-    template_name = 'admin_main_update.html'
-    fields = ['ordinal', 'text', 'up']
-
-
-class AdminExamplesPythonH3Update(UpdateView):
-    model = ExamplesPythonHeaderorList3Text
-    template_name = 'admin_main_update.html'
-    fields = ['ordinal', 'text', 'up']
-
-
-class AdminExamplesPythonH4Update(UpdateView):
-    model = ExamplesPythonHeaderorList4Text
-    template_name = 'admin_main_update.html'
-    fields = ['ordinal', 'text', 'up']
-
-
-class AdminExamplesPythonTextUpdate(UpdateView):
-    model = ExamplesPythonText
-    template_name = 'admin_main_update.html'
-    fields = ['ordinal', 'text', 'up']

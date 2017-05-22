@@ -1,0 +1,33 @@
+@media screen and (max-width: 370px) {
+/* Display 320px only */
+    .list_education li {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 371px) and (max-width: 480px) {
+/* Display 321-480px only */
+    .list_education li {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 481px) {
+/* Display >480px */
+    .list_education li {
+        font-size: 24px;
+    }
+}
+
+.list_education {
+    margin: 0 0 0 28px;
+}
+.list_education li {
+    list-style-type: none; /* Прячем исходные маркеры */
+    padding-bottom: 20px;
+}
+.list_education li:before {
+    content: url(/django/profile_ig/static/app_main/img/list_element.gif);
+    padding-right: 10px; /* Расстояние от маркера до текста */
+    margin-left: -28px; /* Расстояние от маркера до текста */
+}

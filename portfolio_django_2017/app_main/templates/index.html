@@ -6,7 +6,7 @@
 {% endblock %}
 {% block content  %}
     <div class="my_foto">
-        <img src="{% static 'general/img/my_foto_winter.jpg' %}">
+        <img src="{% static 'app_main/img/my_foto_winter.jpg' %}">
     </div>
     {% for h1 in object_list %}
         {% if h1.text %}
@@ -36,22 +36,9 @@
     <div class="puzzle_button">
         <button onclick="arcana();">Получить загадку</button>
     </div>
-    <div class="weather"><!--
-     --><img id="weather_img" class="rainfall" src="{% static 'general/img/empty.gif' %}"><!--
-     --><div class="weather_text">
-        <span>Погода в Санкт-Петербурге сейчас:</span>
-            <span id="weather_temperature">вычисляется...</span>
-            <span id="weather_text">...</span>
-        </div><!--
-     --><div class="nothing"></div><!--
-     --><img class="weather_logo" src="{% static 'general/img/wundergroundLogo_4c_horz.jpg' %}">
-    </div>
+
 {% endblock %}
 
 {% block EndJScript %}
 	<script src="{% static 'app_main/js/main_page.js' %}"></script>
-    <script>
-        var get_weather_url = '{% url 'weather_json' %}'
-        get_weather();
-    </script>
 {% endblock %}

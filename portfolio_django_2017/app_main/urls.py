@@ -13,8 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
-from .views import MainListView, weather_json, ExamplesWorkListView
+from django.conf.urls import url, include
+from .views import MainListView, weather_json, ExamplesWorkListView,\
+    ExamplesWorkPythonListView, ExamplesWorkJsListView,\
+    ExamplesWorkHtmlCssListView, EducationListView, WorksListView,\
+    contact_page
 
 
 urlpatterns = [
@@ -22,4 +25,19 @@ urlpatterns = [
     url(r'^weather.json/$', weather_json, name='weather_json'),
     url(r'^examples_work/$', ExamplesWorkListView.as_view(),
         name='examples_work'),
+    url(r'^education/$', EducationListView.as_view(),
+        name='education'),
+    url(r'^works/$', WorksListView.as_view(),
+        name='works'),
+    url(r'^contact/$', contact_page, name='contact'),
+]
+urlpatterns += [
+    url(r'^examples_work/', include([
+        url(r'^python_django/$', ExamplesWorkPythonListView.as_view(),
+            name='examples_work_python_django'),
+        url(r'^js/$', ExamplesWorkJsListView.as_view(),
+            name='examples_work_js'),
+        url(r'^html_css/$', ExamplesWorkHtmlCssListView.as_view(),
+            name='examples_work_html_css'),
+        ])),
 ]

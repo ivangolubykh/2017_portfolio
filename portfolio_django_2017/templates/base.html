@@ -10,6 +10,8 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="{% static 'general/favicon/favicon-64x64.png' %}">
 	<link rel="stylesheet" href="{% static 'general/style/reset.css' %}">
 	<link rel="stylesheet" href="{% static 'general/style/style.css' %}">
+	{% block LoacalJsCss %}
+	{% endblock %}
 	<script type="text/javascript" src="{% static 'general/js/jquery-3.2.1.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'general/js/all_pages.js' %}"></script>
 	<style>
@@ -19,12 +21,13 @@
 	</style>
 </head>
 <body>
-<div class="scroll_up_window">
-	<div class="scroll_up_button">
-		<a href="#"><strong class="triangle"></strong><br><strong>вверх</strong></a>
-	</div>
-</div>
+
 <div class="overfooter">
+	<div class="scroll_up_window">
+		<div class="scroll_up_button">
+			<a href="#"><strong class="triangle"></strong><br><strong>вверх</strong></a>
+		</div>
+	</div>
 	<header>
 		<div class="navigation">
 			<div class="nothing"></div><!--
@@ -54,6 +57,7 @@
 		{% block content %}
 		{% endblock %}
 	</article>
+	{% include 'weather.html' %}
 </div>
 <footer>
 	<div class="footer_contact">

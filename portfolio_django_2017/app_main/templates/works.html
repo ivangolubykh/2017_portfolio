@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Работы (прежние места работы){% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block LoacalJsCss %}
+    <link rel="stylesheet" href="{% static 'app_main/style/education_and_work.css' %}">
+{% endblock %}
+
+{% block content  %}
+    <ul class="list_education">
+        {% for object in object_list %}
+            <li>{{ object.text }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

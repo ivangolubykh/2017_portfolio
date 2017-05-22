@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Контакты{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block LoacalJsCss %}
+    <link rel="stylesheet" href="{% static 'app_main/style/contact.css' %}">
+{% endblock %}
+
+{% block content  %}
+    <h1>Меня зовут Иван Голубых. Со мной можно связаться следующими способами:</h1>
+    <table>
+        <tr>
+            <td><img src="{% static 'app_main/img/contact_telephone.gif' %}"></td>
+            <td>8-921-355-04-60</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'app_main/img/contact_mail.gif' %}"></td>
+            <td><a href="mailto:ivan9@allworld.xyz">ivan9@allworld.xyz</a></td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'app_main/img/contact_skype.gif' %}"></td>
+            <td><a href="skype:kreoya">kreoya</a></td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'app_main/img/contact_vk.gif' %}"></td>
+            <td><a href="https://vk.com/id52396437" target="_blank">id52396437</a></td>
+        </tr>
+    </table>
+{% endblock %}

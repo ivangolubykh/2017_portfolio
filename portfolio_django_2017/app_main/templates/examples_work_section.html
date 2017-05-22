@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Примеры работ{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block LoacalJsCss %}
+    <link rel="stylesheet" href="{% static 'app_main/style/examples_work_section.css' %}">
+{% endblock %}
+
+{% block content  %}
+    <h1>{{section}}</h1>
+    <div>
+        {% for object in object_list %}
+        <div class="examples_wor_obj">
+            <div class="examples_work_img">
+                {% if object.image_file %}
+                    <img src="{{ MEDIA_URL }}{{ object.image_file }}">
+                {% else %}
+                    {% if section == 'Python/Django' %}
+                        <img src="{% static 'app_main/img/python_django_286.gif' %}">
+                    {% endif %}
+                    {% if section == 'JavaScript' %}
+                        <img src="{% static 'app_main/img/java_script_286.gif' %}">
+                    {% endif %}
+                    {% if section == 'Html5/Css3' %}
+                        <img src="{% static 'app_main/img/html_css_286.gif' %}">
+                    {% endif %}
+                {% endif %}
+            </div>
+            <h2>{{ object.name_project }}</h2>
+            <p>{{ object.text }}</p>
+
+            {% if object.net_address %}
+            <div class="web_link">Web: <a href="{{ object.net_address }}" target="_blank">{{ object.net_address }}</a></div>
+            {% endif %}
+            {% if object.git_address %}
+            <div class="web_link">Git: <a href="{{ object.git_address }}" target="_blank">{{ object.git_address }}</a></div>
+            {% endif %}
+
+        </div>
+        <br style="clear: both;">
+        {% endfor %}
+    </div>
+
+{% endblock %}
