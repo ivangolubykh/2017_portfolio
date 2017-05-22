@@ -19,16 +19,10 @@ from .views import AdminListView, H1Create, H2Create, H3Create, H4Create, \
     H2Update, H3Update, H4Update, TextUpdate,\
     AdminExamplesPythonListView,\
     AdminExamplesPythonCreate, AdminExamplesPythonDelete,\
-    AdminExamplesPythonUpdate,\
+    AdminExamplesPythonUpdate, \
     AdminExamplesJsListView, \
-    AdminExamplesJsH1Create, AdminExamplesJsH2Create, \
-    AdminExamplesJsH3Create, AdminExamplesJsH4Create, \
-    AdminExamplesJsTextCreate, AdminExamplesJsH1Delete, \
-    AdminExamplesJsH2Delete, AdminExamplesJsH3Delete, \
-    AdminExamplesJsH4Delete, AdminExamplesJsTextDelete, \
-    AdminExamplesJsH1Update, AdminExamplesJsH2Update, \
-    AdminExamplesJsH3Update, AdminExamplesJsH4Update, \
-    AdminExamplesJsTextUpdate,\
+    AdminExamplesJsCreate, AdminExamplesJsDelete, \
+    AdminExamplesJsUpdate, \
     AdminExamplesHtmlCssListView, \
     AdminExamplesHtmlCssH1Create, AdminExamplesHtmlCssH2Create, \
     AdminExamplesHtmlCssH3Create, AdminExamplesHtmlCssH4Create, \
@@ -109,51 +103,15 @@ urlpatterns += [
     url(r'^admin_examples_work_js/$',
         AdminExamplesJsListView.as_view(),
         name='admin_examples_work_js'),
-    url(r'admin_examples_work_js/add_main_h1/$',
-        AdminExamplesJsH1Create.as_view(),
-        name='admin_examples_work_js-add_h1'),
-    url(r'admin_examples_work_js/add_main_h2/$',
-        AdminExamplesJsH2Create.as_view(),
-        name='admin_examples_work_js-add_h2'),
-    url(r'admin_examples_work_js/add_main_h3/$',
-        AdminExamplesJsH3Create.as_view(),
-        name='admin_examples_work_js-add_h3'),
-    url(r'admin_examples_work_js/add_main_h4/$',
-        AdminExamplesJsH4Create.as_view(),
-        name='admin_examples_work_js-add_h4'),
-    url(r'admin_examples_work_js/add_main_text/$',
-        AdminExamplesJsTextCreate.as_view(),
-        name='admin_examples_work_js-add_text'),
-    url(r'admin_examples_work_js/del_main_h1/(?P<pk>[\w]+)/$',
-        AdminExamplesJsH1Delete.as_view(),
-        name='admin_examples_work_js-del_h1'),
-    url(r'admin_examples_work_js/del_main_h2/(?P<pk>[\w]+)/$',
-        AdminExamplesJsH2Delete.as_view(),
-        name='admin_examples_work_js-del_h2'),
-    url(r'admin_examples_work_js/del_main_h3/(?P<pk>[\w]+)/$',
-        AdminExamplesJsH3Delete.as_view(),
-        name='admin_examples_work_js-del_h3'),
-    url(r'admin_examples_work_js/del_main_h4/(?P<pk>[\w]+)/$',
-        AdminExamplesJsH4Delete.as_view(),
-        name='admin_examples_work_js-del_h4'),
-    url(r'admin_examples_work_js/del_main_text/(?P<pk>[\w]+)/$',
-        AdminExamplesJsTextDelete.as_view(),
-        name='admin_examples_work_js-del_text'),
-    url(r'admin_examples_work_js/update_main_h1/(?P<pk>[\w]+)/$',
-        AdminExamplesJsH1Update.as_view(),
-        name='admin_examples_work_js-update_h1'),
-    url(r'admin_examples_work_js/update_main_h2/(?P<pk>[\w]+)/$',
-        AdminExamplesJsH2Update.as_view(),
-        name='admin_examples_work_js-update_h2'),
-    url(r'admin_examples_work_js/update_main_h3/(?P<pk>[\w]+)/$',
-        AdminExamplesJsH3Update.as_view(),
-        name='admin_examples_work_js-update_h3'),
-    url(r'admin_examples_work_js/update_main_h4/(?P<pk>[\w]+)/$',
-        AdminExamplesJsH4Update.as_view(),
-        name='admin_examples_work_js-update_h4'),
-    url(r'admin_examples_work_js/update_main_text/(?P<pk>[\w]+)/$',
-        AdminExamplesJsTextUpdate.as_view(),
-        name='admin_examples_work_js-update_text'),
+    url(r'admin_examples_work_js/add/$',
+        AdminExamplesJsCreate.as_view(),
+        name='admin_examples_work_js-add'),
+    url(r'admin_examples_work_js/del/(?P<pk>[\w]+)/$',
+        AdminExamplesJsDelete.as_view(),
+        name='admin_examples_work_js-del'),
+    url(r'admin_examples_work_js/update/(?P<pk>[\w]+)/$',
+        AdminExamplesJsUpdate.as_view(),
+        name='admin_examples_work_js-update'),
 ]
 
 # Блок страниц админки для страницы примеров работ на Html5/Css:
