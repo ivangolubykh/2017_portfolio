@@ -26,15 +26,8 @@ from .views import AdminListView, H1Create, H2Create, H3Create, H4Create, \
     AdminExamplesHtmlCssListView, \
     AdminExamplesHtmlCssCreate, AdminExamplesHtmlCssDelete,\
     AdminExamplesHtmlCssUpdate, \
-    AdminEducationListView, \
-    AdminEducationH1Create, AdminEducationH2Create, \
-    AdminEducationH3Create, AdminEducationH4Create, \
-    AdminEducationTextCreate, AdminEducationH1Delete, \
-    AdminEducationH2Delete, AdminEducationH3Delete, \
-    AdminEducationH4Delete, AdminEducationTextDelete, \
-    AdminEducationH1Update, AdminEducationH2Update, \
-    AdminEducationH3Update, AdminEducationH4Update, \
-    AdminEducationTextUpdate,\
+    AdminEducationListView, AdminEducationCreate, AdminEducationDelete, \
+    AdminEducationUpdate,\
     AdminWorksListView, \
     AdminWorksH1Create, AdminWorksH2Create, \
     AdminWorksH3Create, AdminWorksH4Create, \
@@ -129,51 +122,15 @@ urlpatterns += [
     url(r'^admin_education/$',
         AdminEducationListView.as_view(),
         name='admin_education'),
-    url(r'admin_education/add_main_h1/$',
-        AdminEducationH1Create.as_view(),
-        name='admin_education-add_h1'),
-    url(r'admin_education/add_main_h2/$',
-        AdminEducationH2Create.as_view(),
-        name='admin_education-add_h2'),
-    url(r'admin_education/add_main_h3/$',
-        AdminEducationH3Create.as_view(),
-        name='admin_education-add_h3'),
-    url(r'admin_education/add_main_h4/$',
-        AdminEducationH4Create.as_view(),
-        name='admin_education-add_h4'),
-    url(r'admin_education/add_main_text/$',
-        AdminEducationTextCreate.as_view(),
-        name='admin_education-add_text'),
-    url(r'admin_education/del_main_h1/(?P<pk>[\w]+)/$',
-        AdminEducationH1Delete.as_view(),
-        name='admin_education-del_h1'),
-    url(r'admin_education/del_main_h2/(?P<pk>[\w]+)/$',
-        AdminEducationH2Delete.as_view(),
-        name='admin_education-del_h2'),
-    url(r'admin_education/del_main_h3/(?P<pk>[\w]+)/$',
-        AdminEducationH3Delete.as_view(),
-        name='admin_education-del_h3'),
-    url(r'admin_education/del_main_h4/(?P<pk>[\w]+)/$',
-        AdminEducationH4Delete.as_view(),
-        name='admin_education-del_h4'),
-    url(r'admin_education/del_main_text/(?P<pk>[\w]+)/$',
-        AdminEducationTextDelete.as_view(),
-        name='admin_education-del_text'),
-    url(r'admin_education/update_main_h1/(?P<pk>[\w]+)/$',
-        AdminEducationH1Update.as_view(),
-        name='admin_education-update_h1'),
-    url(r'admin_education/update_main_h2/(?P<pk>[\w]+)/$',
-        AdminEducationH2Update.as_view(),
-        name='admin_education-update_h2'),
-    url(r'admin_education/update_main_h3/(?P<pk>[\w]+)/$',
-        AdminEducationH3Update.as_view(),
-        name='admin_education-update_h3'),
-    url(r'admin_education/update_main_h4/(?P<pk>[\w]+)/$',
-        AdminEducationH4Update.as_view(),
-        name='admin_education-update_h4'),
-    url(r'admin_education/update_main_text/(?P<pk>[\w]+)/$',
-        AdminEducationTextUpdate.as_view(),
-        name='admin_education-update_text'),
+    url(r'admin_education/add/$',
+        AdminEducationCreate.as_view(),
+        name='admin_education-add'),
+    url(r'admin_education/del/(?P<pk>[\w]+)/$',
+        AdminEducationDelete.as_view(),
+        name='admin_education-del'),
+    url(r'admin_education/update/(?P<pk>[\w]+)/$',
+        AdminEducationUpdate.as_view(),
+        name='admin_education-update'),
 ]
 
 # Блок страниц админки для страницы Работы:

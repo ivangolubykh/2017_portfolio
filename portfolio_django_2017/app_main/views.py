@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from django.views.generic.list import ListView
 from .models import MainHeader1Text, Weather_For_Json, \
-    ExamplesPython, ExamplesJs, ExamplesHtmlCss
+    ExamplesPython, ExamplesJs, ExamplesHtmlCss, Education
 import requests
 from django.http import JsonResponse
 from portfolio_django_2017.settings import STATIC_URL
@@ -155,7 +155,7 @@ class ExamplesWorkPythonListView(ListView):
 
 
 class ExamplesWorkJsListView(ListView):
-    '''Страница Примеры работ на Питоне и Джанго:'''
+    '''Страница Примеры работ на JavaScript:'''
     # model = MainText
     crumbs_page_name = 'JavaScript'
     crumbs_page_urlname = 'examples_work_js'
@@ -174,8 +174,9 @@ class ExamplesWorkJsListView(ListView):
         context['section'] = 'JavaScript'
         return context
 
+
 class ExamplesWorkHtmlCssListView(ListView):
-    '''Страница Примеры работ на Питоне и Джанго:'''
+    '''Страница Примеры работ на HTML и CSS:'''
     # model = MainText
     crumbs_page_name = 'Html5/Css3'
     crumbs_page_urlname = 'examples_work_html_css'
@@ -192,4 +193,24 @@ class ExamplesWorkHtmlCssListView(ListView):
             self.request.session['session_exist'] = True
         context['crumbs'] = crumbs(__class__)
         context['section'] = 'Html5/Css3'
+        return context
+
+
+class EducationListView(ListView):
+    '''Страница Учёбы (образование):'''
+    # model = MainText
+    crumbs_page_name = 'Учёбы'
+    crumbs_page_urlname = 'education'
+    crumbs_up = MainListView
+    queryset = Education.objects.order_by('ordinal').reverse()
+    template_name = 'education.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Создаю сессию для подрузки данных Ajax-ом только для своих
+        # посетителей:
+        if 'session_exist' not in self.request.session or\
+                not self.request.session['session_exist']:
+            self.request.session['session_exist'] = True
+        context['crumbs'] = crumbs(__class__)
         return context
