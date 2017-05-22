@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from django.views.generic.list import ListView
-from .models import MainHeader1Text, Weather_For_Json,\
-    ExamplesPythonHeaderorList1Text
+from .models import MainHeader1Text, Weather_For_Json, \
+    ExamplesPython
 import requests
 from django.http import JsonResponse
 from portfolio_django_2017.settings import STATIC_URL
@@ -139,13 +139,7 @@ class ExamplesWorkPythonListView(ListView):
     crumbs_page_name = 'Python'
     crumbs_page_urlname = 'examples_work_python_django'
     crumbs_up = ExamplesWorkListView
-    queryset = ExamplesPythonHeaderorList1Text.objects.order_by('ordinal').\
-        prefetch_related('examplespythonheaderorlist2text_set',
-                         'examplespythonheaderorlist2text_set__examplespythonheaderorlist3text_set',
-                         'examplespythonheaderorlist2text_set__examplespythonheaderorlist3text_set__'
-                         'examplespythonheaderorlist4text_set',
-                         'examplespythonheaderorlist2text_set__examplespythonheaderorlist3text_set__'
-                         'examplespythonheaderorlist4text_set__examplespythontext_set')
+    queryset = ExamplesPython.objects.order_by('ordinal')
     template_name = 'examples_work_python_django.html'
 
     def get_context_data(self, **kwargs):
