@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from .views import MainListView, weather_json, ExamplesWorkListView,\
     ExamplesWorkPythonListView, ExamplesWorkJsListView,\
-    ExamplesWorkHtmlCssListView, EducationListView
+    ExamplesWorkHtmlCssListView, EducationListView, WorksListView
 
 
 urlpatterns = [
@@ -26,6 +26,8 @@ urlpatterns = [
         name='examples_work'),
     url(r'^education/$', EducationListView.as_view(),
         name='education'),
+    url(r'^works/$', WorksListView.as_view(),
+        name='works'),
 ]
 urlpatterns += [
     url(r'^examples_work/', include([

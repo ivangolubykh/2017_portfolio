@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from django.views.generic.list import ListView
 from .models import MainHeader1Text, Weather_For_Json, \
-    ExamplesPython, ExamplesJs, ExamplesHtmlCss, Education
+    ExamplesPython, ExamplesJs, ExamplesHtmlCss, Education, Works
 import requests
 from django.http import JsonResponse
 from portfolio_django_2017.settings import STATIC_URL
@@ -204,6 +204,26 @@ class EducationListView(ListView):
     crumbs_up = MainListView
     queryset = Education.objects.order_by('ordinal').reverse()
     template_name = 'education.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Создаю сессию для подрузки данных Ajax-ом только для своих
+        # посетителей:
+        if 'session_exist' not in self.request.session or\
+                not self.request.session['session_exist']:
+            self.request.session['session_exist'] = True
+        context['crumbs'] = crumbs(__class__)
+        return context
+
+
+class WorksListView(ListView):
+    '''Страница Учёбы (образование):'''
+    # model = MainText
+    crumbs_page_name = 'Работы'
+    crumbs_page_urlname = 'works'
+    crumbs_up = MainListView
+    queryset = Works.objects.order_by('ordinal').reverse()
+    template_name = 'works.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

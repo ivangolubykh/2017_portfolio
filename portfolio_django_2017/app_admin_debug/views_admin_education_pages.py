@@ -19,7 +19,7 @@ class AdminEducationCreate(CreateView):
 
 class AdminEducationDelete(DeleteView):
     model = Education
-    success_url = reverse_lazy('admin_examples_work_html_css')
+    success_url = reverse_lazy('admin_education')
     template_name = 'admin_main_delete.html'
 
 

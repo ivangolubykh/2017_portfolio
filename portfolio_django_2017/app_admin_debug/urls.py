@@ -17,26 +17,15 @@ from django.conf.urls import url
 from .views import AdminListView, H1Create, H2Create, H3Create, H4Create, \
     TextCreate, H1Delete, H2Delete, H3Delete, H4Delete, TextDelete, H1Update,\
     H2Update, H3Update, H4Update, TextUpdate,\
-    AdminExamplesPythonListView,\
-    AdminExamplesPythonCreate, AdminExamplesPythonDelete,\
-    AdminExamplesPythonUpdate, \
-    AdminExamplesJsListView, \
-    AdminExamplesJsCreate, AdminExamplesJsDelete, \
-    AdminExamplesJsUpdate, \
-    AdminExamplesHtmlCssListView, \
-    AdminExamplesHtmlCssCreate, AdminExamplesHtmlCssDelete,\
-    AdminExamplesHtmlCssUpdate, \
+    AdminExamplesPythonListView, AdminExamplesPythonCreate,\
+    AdminExamplesPythonDelete, AdminExamplesPythonUpdate,\
+    AdminExamplesJsListView, AdminExamplesJsCreate, AdminExamplesJsDelete, \
+    AdminExamplesJsUpdate,\
+    AdminExamplesHtmlCssListView, AdminExamplesHtmlCssCreate,\
+    AdminExamplesHtmlCssDelete, AdminExamplesHtmlCssUpdate,\
     AdminEducationListView, AdminEducationCreate, AdminEducationDelete, \
     AdminEducationUpdate,\
-    AdminWorksListView, \
-    AdminWorksH1Create, AdminWorksH2Create, \
-    AdminWorksH3Create, AdminWorksH4Create, \
-    AdminWorksTextCreate, AdminWorksH1Delete, \
-    AdminWorksH2Delete, AdminWorksH3Delete, \
-    AdminWorksH4Delete, AdminWorksTextDelete, \
-    AdminWorksH1Update, AdminWorksH2Update, \
-    AdminWorksH3Update, AdminWorksH4Update, \
-    AdminWorksTextUpdate
+    AdminWorksListView, AdminWorksCreate, AdminWorksDelete, AdminWorksUpdate
 
 # Блок страниц админки для главной страницы:
 urlpatterns = [
@@ -138,49 +127,13 @@ urlpatterns += [
     url(r'^admin_works/$',
         AdminWorksListView.as_view(),
         name='admin_works'),
-    url(r'admin_works/add_main_h1/$',
-        AdminWorksH1Create.as_view(),
-        name='admin_works-add_h1'),
-    url(r'admin_works/add_main_h2/$',
-        AdminWorksH2Create.as_view(),
-        name='admin_works-add_h2'),
-    url(r'admin_works/add_main_h3/$',
-        AdminWorksH3Create.as_view(),
-        name='admin_works-add_h3'),
-    url(r'admin_works/add_main_h4/$',
-        AdminWorksH4Create.as_view(),
-        name='admin_works-add_h4'),
-    url(r'admin_works/add_main_text/$',
-        AdminWorksTextCreate.as_view(),
-        name='admin_works-add_text'),
-    url(r'admin_works/del_main_h1/(?P<pk>[\w]+)/$',
-        AdminWorksH1Delete.as_view(),
-        name='admin_works-del_h1'),
-    url(r'admin_works/del_main_h2/(?P<pk>[\w]+)/$',
-        AdminWorksH2Delete.as_view(),
-        name='admin_works-del_h2'),
-    url(r'admin_works/del_main_h3/(?P<pk>[\w]+)/$',
-        AdminWorksH3Delete.as_view(),
-        name='admin_works-del_h3'),
-    url(r'admin_works/del_main_h4/(?P<pk>[\w]+)/$',
-        AdminWorksH4Delete.as_view(),
-        name='admin_works-del_h4'),
-    url(r'admin_works/del_main_text/(?P<pk>[\w]+)/$',
-        AdminWorksTextDelete.as_view(),
-        name='admin_works-del_text'),
-    url(r'admin_works/update_main_h1/(?P<pk>[\w]+)/$',
-        AdminWorksH1Update.as_view(),
-        name='admin_works-update_h1'),
-    url(r'admin_works/update_main_h2/(?P<pk>[\w]+)/$',
-        AdminWorksH2Update.as_view(),
-        name='admin_works-update_h2'),
-    url(r'admin_works/update_main_h3/(?P<pk>[\w]+)/$',
-        AdminWorksH3Update.as_view(),
-        name='admin_works-update_h3'),
-    url(r'admin_works/update_main_h4/(?P<pk>[\w]+)/$',
-        AdminWorksH4Update.as_view(),
-        name='admin_works-update_h4'),
-    url(r'admin_works/update_main_text/(?P<pk>[\w]+)/$',
-        AdminWorksTextUpdate.as_view(),
-        name='admin_works-update_text'),
+    url(r'admin_works/add/$',
+        AdminWorksCreate.as_view(),
+        name='admin_works-add'),
+    url(r'admin_works/del/(?P<pk>[\w]+)/$',
+        AdminWorksDelete.as_view(),
+        name='admin_works-del'),
+    url(r'admin_works/update/(?P<pk>[\w]+)/$',
+        AdminWorksUpdate.as_view(),
+        name='admin_works-update'),
 ]
