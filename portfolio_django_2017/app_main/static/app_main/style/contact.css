@@ -1,0 +1,47 @@
+@media screen and (max-width: 480px) {
+/* Display 320px AND 480px*/
+    body h1 {
+        font-size: 24px;
+    }
+    table td {
+        font-size: 19px;
+        font-family: OpenSansRegular;
+    }
+    table {
+        margin: 0 0 0 5px;
+    }
+    table tr td:first-child, table tr td:first-child img {
+        width: 32px;
+        height: 25px;
+        padding: 2px 0;
+        vertical-align: middle;
+    }
+    table td {
+        vertical-align: middle;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (min-width: 481px) {
+/* Display >480px */
+    body h1 {
+        font-size: 30px;
+    }
+    table td {
+        font-size: 32px;
+    }
+    table {
+        margin: 0 0 0 50px;
+    }
+    table tr td:first-child, table tr td:first-child img {
+        width: 66px;
+        height: 50px;
+        padding: 20px 0;
+        vertical-align: middle;
+    }
+    table td {
+        vertical-align: middle;
+        padding: 0 20px;
+    }
+}
+

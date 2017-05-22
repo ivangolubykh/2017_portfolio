@@ -234,3 +234,7 @@ class WorksListView(ListView):
             self.request.session['session_exist'] = True
         context['crumbs'] = crumbs(__class__)
         return context
+
+
+def contact_page(request):
+    return render_to_response('contact.html')
