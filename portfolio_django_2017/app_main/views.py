@@ -140,7 +140,7 @@ class ExamplesWorkPythonListView(ListView):
     crumbs_page_urlname = 'examples_work_python_django'
     crumbs_up = ExamplesWorkListView
     queryset = ExamplesPython.objects.order_by('ordinal')
-    template_name = 'examples_work_python_django.html'
+    template_name = 'examples_work_section.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -150,4 +150,5 @@ class ExamplesWorkPythonListView(ListView):
                 not self.request.session['session_exist']:
             self.request.session['session_exist'] = True
         context['crumbs'] = crumbs(__class__)
+        context['section'] = 'Python/Django'
         return context

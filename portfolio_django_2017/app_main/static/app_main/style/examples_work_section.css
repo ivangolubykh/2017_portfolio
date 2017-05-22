@@ -1,0 +1,45 @@
+body h1 {
+    font-family: OpenSansSemiBold;
+    margin: 0 0 15px 0;
+}
+
+body h2 {
+    font-family: OpenSansRegular;
+    font-size: 30px;
+    margin: 5 0 25px 0;
+}
+
+body p {
+    font-size: 18px;
+}
+
+.examples_work_img {
+    max-width: 286px;
+    float: left;
+    margin: 0 35px 10px 0;
+    width: 40%;
+}
+.examples_work_img > img {
+    border-radius: 50%;
+    box-shadow: 0 0 55px -5px white;
+    width: 100%;
+    height: 100%;
+}
+
+.web_link {
+    display: inline-block;
+    width: 50%;
+    padding: 2px 0;
+    white-space: nowrap; /* запрет на перенос строк */
+    overflow: hidden; /* скрываю все, что не помещается */
+    text-overflow: ellipsis; /* добавляю многоточие */
+    margin: 20px 2% 15px 0;
+}
+
+.examples_wor_obj {
+    border-top: solid 1px;
+    padding: 40px 0 0 0;
+}
+.examples_wor_obj:first-child {
+    border-top: 0px;
+}

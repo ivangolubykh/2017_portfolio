@@ -402,7 +402,7 @@ footer {
     }
 
     article {
-        margin: 45px 0 75px 0;
+        margin: 45px 0 25px 0;
     }
 
     .puzzle_button{
@@ -572,7 +572,8 @@ p {
 }
 
 article {
-    min-height: 300px;
+    display: inline-block;
+    width: 100%;
 }
 
 .puzzle_button{
@@ -589,7 +590,7 @@ article {
     width: 100%;
     min-height: 66px;
     background: white;
-    margin: 25px 0 25px 0;
+    margin: 25px 0 60px 0;
     border: none;
     border-radius: 10px;
     color: black;
