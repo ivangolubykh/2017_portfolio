@@ -1,3 +1,38 @@
+@media screen and (max-width: 370px) {
+/* Display 320px only */
+    body h1, body h2 {
+        font-size: 20px;
+    }
+
+    body p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 371px) and (max-width: 480px) {
+/* Display 321-480px only */
+    body h1, body h2 {
+        font-size: 22px;
+    }
+
+    body p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 481px) {
+/* Display >480px */
+    body h1, body h2 {
+        font-size: 30px;
+    }
+
+    body p {
+        font-size: 18px;
+    }
+}
+
+
+
 body h1 {
     font-family: OpenSansSemiBold;
     margin: 0 0 15px 0;
@@ -5,13 +40,9 @@ body h1 {
 
 body h2 {
     font-family: OpenSansRegular;
-    font-size: 30px;
     margin: 5 0 25px 0;
 }
 
-body p {
-    font-size: 18px;
-}
 
 .examples_work_img {
     max-width: 286px;
