@@ -8,7 +8,6 @@ from portfolio_django_2017.settings import STATIC_URL
 from django.db import transaction
 from django.utils import timezone
 from django.core.urlresolvers import reverse
-from django.shortcuts import render_to_response
 
 
 def crumbs(object):
@@ -236,5 +235,21 @@ class WorksListView(ListView):
         return context
 
 
-def contact_page(request):
-    return render_to_response('contact.html')
+class ContactListView(ListView):
+    '''Страница Контакты:'''
+    crumbs_page_name = 'Контакты'
+    crumbs_page_urlname = 'contact'
+    crumbs_up = MainListView
+    # model = MainText
+    queryset = ''
+    template_name = 'contact.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Создаю сессию для подрузки данных Ajax-ом только для своих
+        # посетителей:
+        if 'session_exist' not in self.request.session or\
+                not self.request.session['session_exist']:
+            self.request.session['session_exist'] = True
+        context['crumbs'] = crumbs(__class__)
+        return context
