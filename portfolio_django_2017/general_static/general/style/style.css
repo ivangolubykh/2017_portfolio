@@ -28,7 +28,16 @@
     font-style: normal;
     font-weight: normal;
 }
-
+/* font-family: "OpenSansItalic"; */
+@font-face {
+    font-family: "OpenSansItalic";
+    src: url("../fonts/OpenSansItalic/OpenSansItalic.eot");
+    src: url("../fonts/OpenSansItalic/OpenSansItalic.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSansItalic/OpenSansItalic.woff") format("woff"),
+    url("../fonts/OpenSansItalic/OpenSansItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
 * {
     font-weight: 400;
     color: inherit;
@@ -56,6 +65,9 @@ h1, h2, h3, h4, p, li {
     line-height: 1.3em;
 }
 
+h2, i {
+    font-family: OpenSansItalic;
+}
 
 .overfooter {
     position: relative;
@@ -245,6 +257,9 @@ footer {
         font-family: OpenSansRegular;
         font-size: 18px;
     }
+    body h2 {
+        font-size: 18px;
+    }
     body p {
         font-size: 18px;
     }
@@ -291,6 +306,9 @@ footer {
     body h1 {
         font-family: OpenSansRegular;
         font-size: 24px;
+    }
+    body h2 {
+        font-size: 20px;
     }
 
     body p {
@@ -399,6 +417,9 @@ footer {
 
     body h1 {
         font-size: 30px;
+    }
+    body h2 {
+        font-size: 26px;
     }
     body p {
         font-size: 24px;
