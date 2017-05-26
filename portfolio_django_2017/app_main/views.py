@@ -48,7 +48,7 @@ class MainListView(ListView):
     def path_to_my_photo():
         '''Выбираю своё фото: зимнее или летнее в зависимости от времени года.
         '''
-        if datetime.now().month in (5,6,7,8,9,10):
+        if datetime.now().month in (5, 6, 7, 8, 9, 10):
             # если лето, то летняя фото на сайте.
             return 'app_main/img/my_foto_summer.jpg'
         return 'app_main/img/my_foto_winter.jpg'
