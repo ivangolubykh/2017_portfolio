@@ -133,7 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 # STATIC_URL = '/static/'
-STATIC_URL = '/django/profile_ig/static/'
+STATIC_URL = '/portfolio/2017_portfolio/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "general_static"),
@@ -141,7 +141,7 @@ STATICFILES_DIRS = (
 
 # абсолютный путь к каталогу для загруженных файлов, в.т.ч. картинок.
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = '/django/profile_ig/media/'
+MEDIA_URL = '/portfolio/2017_portfolio/media/'
 
 # Настраиваю вывод сообщений об ошибках, а то по умолчанию они даже
 # в консоль не попадают.
