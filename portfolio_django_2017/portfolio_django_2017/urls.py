@@ -22,13 +22,13 @@ from django.views.generic.base import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
-starturl = r'^django/profile_ig/'
+starturl = r'^portfolio/2017_portfolio/'
 
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     # редирект с главной страницы в папку:
     url(r'^$', RedirectView.
-        as_view(url='django/profile_ig/')),
+        as_view(url='portfolio/2017_portfolio/')),
 ]
 urlpatterns += [
     url(starturl, include('app_main.urls')),
