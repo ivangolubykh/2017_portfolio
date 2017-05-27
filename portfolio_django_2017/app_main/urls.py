@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from .views import MainListView, weather_json, ExamplesWorkListView,\
     ExamplesWorkPythonListView, ExamplesWorkJsListView,\
     ExamplesWorkHtmlCssListView, EducationListView, WorksListView,\
-    contact_page
+    ContactListView
 
 
 urlpatterns = [
@@ -29,7 +29,7 @@ urlpatterns = [
         name='education'),
     url(r'^works/$', WorksListView.as_view(),
         name='works'),
-    url(r'^contact/$', contact_page, name='contact'),
+    url(r'^contact/$', ContactListView.as_view(), name='contact'),
 ]
 urlpatterns += [
     url(r'^examples_work/', include([

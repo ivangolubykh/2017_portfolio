@@ -8,7 +8,7 @@ from portfolio_django_2017.settings import STATIC_URL
 from django.db import transaction
 from django.utils import timezone
 from django.core.urlresolvers import reverse
-from django.shortcuts import render_to_response
+from datetime import datetime
 
 
 def crumbs(object):
@@ -44,6 +44,15 @@ class MainListView(ListView):
                          'mainheader4text_set__maintext_set')
     template_name = 'index.html'
 
+    @staticmethod
+    def path_to_my_photo():
+        '''Выбираю своё фото: зимнее или летнее в зависимости от времени года.
+        '''
+        if datetime.now().month in (5, 6, 7, 8, 9, 10):
+            # если лето, то летняя фото на сайте.
+            return 'app_main/img/my_foto_summer.jpg'
+        return 'app_main/img/my_foto_winter.jpg'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # Создаю сессию для подрузки данных Ajax-ом только для своих
@@ -51,6 +60,7 @@ class MainListView(ListView):
         if 'session_exist' not in self.request.session or\
                 not self.request.session['session_exist']:
             self.request.session['session_exist'] = True
+        context['path_to_my_photo'] = __class__.path_to_my_photo()
         return context
 
 
@@ -236,5 +246,21 @@ class WorksListView(ListView):
         return context
 
 
-def contact_page(request):
-    return render_to_response('contact.html')
+class ContactListView(ListView):
+    '''Страница Контакты:'''
+    crumbs_page_name = 'Контакты'
+    crumbs_page_urlname = 'contact'
+    crumbs_up = MainListView
+    # model = MainText
+    queryset = ''
+    template_name = 'contact.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Создаю сессию для подрузки данных Ajax-ом только для своих
+        # посетителей:
+        if 'session_exist' not in self.request.session or\
+                not self.request.session['session_exist']:
+            self.request.session['session_exist'] = True
+        context['crumbs'] = crumbs(__class__)
+        return context

@@ -65,3 +65,59 @@ class TestMainPage(TestCase):
         self.assertEqual(response['Content-Type'], 'application/json',
                          msg='Страница погоды (для ajax) работает неверно:'
                              ' не тип данных application/json')
+
+    def test_examples_work(self):
+        """ Тест на доступность страницы Примеры работ
+        """
+        response = self.client.get(reverse('examples_work'))
+        self.assertEqual(response.status_code, 200,
+                         msg='Страница Примеры работ работает неверно:'
+                             ' не возвращает код 200 OK')
+
+    def test_examples_work_python_django(self):
+        """ Тест на доступность страницы Примеры работ на Python/Django
+        """
+        response = self.client.get(reverse('examples_work_python_django'))
+        self.assertEqual(response.status_code, 200,
+                         msg='Страница Примеры работ на Python/Django'
+                             ' работает неверно: не возвращает код 200 OK')
+
+    def test_examples_work_js(self):
+        """ Тест на доступность страницы Примеры работ на JavaScript
+        """
+        response = self.client.get(reverse('examples_work_js'))
+        self.assertEqual(response.status_code, 200,
+                         msg='Страница Примеры работ на JavaScript'
+                             ' работает неверно: не возвращает код 200 OK')
+
+    def test_examples_work_html_css(self):
+        """ Тест на доступность страницы Примеры работ на Html5/Css3
+        """
+        response = self.client.get(reverse('examples_work_html_css'))
+        self.assertEqual(response.status_code, 200,
+                         msg='Страница Примеры работ на Html5/Css3'
+                             ' работает неверно: не возвращает код 200 OK')
+
+    def test_education(self):
+        """ Тест на доступность страницы Учёбы
+        """
+        response = self.client.get(reverse('education'))
+        self.assertEqual(response.status_code, 200,
+                         msg='Страница Учёбы работает неверно:'
+                             ' не возвращает код 200 OK')
+
+    def test_works(self):
+        """ Тест на доступность страницы Работы
+        """
+        response = self.client.get(reverse('works'))
+        self.assertEqual(response.status_code, 200,
+                         msg='Страница Работы работает неверно:'
+                             ' не возвращает код 200 OK')
+
+    def test_contact(self):
+        """ Тест на доступность страницы Контакты
+        """
+        response = self.client.get(reverse('contact'))
+        self.assertEqual(response.status_code, 200,
+                         msg='Страница Контакты работает неверно:'
+                             ' не возвращает код 200 OK')
