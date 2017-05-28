@@ -13,7 +13,7 @@
 {% block content  %}
     <ul class="list_education">
         {% for object in object_list %}
-            <li>{{ object.text }}</li>
+            <li>{{ object.text|safe }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
