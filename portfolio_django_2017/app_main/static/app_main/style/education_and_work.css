@@ -27,7 +27,5 @@
     padding-bottom: 20px;
 }
 .list_education li:before {
-    content: url(/django/profile_ig/static/app_main/img/list_element.gif);
-    padding-right: 10px; /* Расстояние от маркера до текста */
-    margin-left: -28px; /* Расстояние от маркера до текста */
+    /* Вынесено в базовый шаблон base.html, т.к. там упоминается URL файла картинки, а он должен меняться динамически. */
 }
