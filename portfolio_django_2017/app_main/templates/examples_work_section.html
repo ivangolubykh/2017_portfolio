@@ -31,7 +31,7 @@
                 {% endif %}
             </div>
             <h2>{{ object.name_project }}</h2>
-            <p>{{ object.text }}</p>
+            <p>{{ object.text|safe }}</p>
 
             {% if object.net_address %}
             <div class="web_link">Web: <a href="{{ object.net_address }}" target="_blank">{{ object.net_address }}</a></div>

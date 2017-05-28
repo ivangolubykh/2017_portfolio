@@ -149,7 +149,7 @@ class ExamplesWorkPythonListView(ListView):
     crumbs_page_name = 'Python'
     crumbs_page_urlname = 'examples_work_python_django'
     crumbs_up = ExamplesWorkListView
-    queryset = ExamplesPython.objects.order_by('ordinal')
+    queryset = ExamplesPython.objects.order_by('ordinal').reverse()
     template_name = 'examples_work_section.html'
 
     def get_context_data(self, **kwargs):
@@ -170,7 +170,7 @@ class ExamplesWorkJsListView(ListView):
     crumbs_page_name = 'JavaScript'
     crumbs_page_urlname = 'examples_work_js'
     crumbs_up = ExamplesWorkListView
-    queryset = ExamplesJs.objects.order_by('ordinal')
+    queryset = ExamplesJs.objects.order_by('ordinal').reverse()
     template_name = 'examples_work_section.html'
 
     def get_context_data(self, **kwargs):
@@ -191,7 +191,7 @@ class ExamplesWorkHtmlCssListView(ListView):
     crumbs_page_name = 'Html5/Css3'
     crumbs_page_urlname = 'examples_work_html_css'
     crumbs_up = ExamplesWorkListView
-    queryset = ExamplesHtmlCss.objects.order_by('ordinal')
+    queryset = ExamplesHtmlCss.objects.order_by('ordinal').reverse()
     template_name = 'examples_work_section.html'
 
     def get_context_data(self, **kwargs):
@@ -227,7 +227,7 @@ class EducationListView(ListView):
 
 
 class WorksListView(ListView):
-    '''Страница Учёбы (образование):'''
+    '''Страница Работы (прежние места моей работы):'''
     # model = MainText
     crumbs_page_name = 'Работы'
     crumbs_page_urlname = 'works'
