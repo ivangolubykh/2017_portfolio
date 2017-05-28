@@ -59,7 +59,7 @@ body {
     -ms-hyphens: auto;
     text-align: justify;
 }
-article p a {
+article p a, article li a {
     text-decoration: underline;
 }
 
