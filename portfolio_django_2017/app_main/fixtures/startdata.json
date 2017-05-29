@@ -196,6 +196,15 @@
   }
 },
 {
+  "model": "app_main.maintext",
+  "pk": 10,
+  "fields": {
+    "ordinal": 5,
+    "text": "\u0412\u0435\u0440\u0441\u0438\u044f \u0434\u043b\u044f \u043f\u0435\u0447\u0430\u0442\u0438: <a href=\"/portfolio/2017_portfolio/static/app_main/pdf/2017_05_29_portfolio_ivan_golubykh.pdf\" target=\"_blank\">PDF</a>.",
+    "up": 1
+  }
+},
+{
   "model": "app_main.examplespython",
   "pk": 1,
   "fields": {
@@ -411,10 +420,10 @@
   "model": "app_main.weather_for_json",
   "pk": 1,
   "fields": {
-    "datetime": "2017-05-28T10:35:34.950Z",
-    "image": "https://icons.wxug.com/i/c/k/clear.gif",
-    "temperature": "13.9",
-    "text": "\u042f\u0441\u043d\u043e"
+    "datetime": "2017-05-29T07:22:10.212Z",
+    "image": "https://icons.wxug.com/i/c/k/partlycloudy.gif",
+    "temperature": "14.9",
+    "text": "\u041f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0430\u044f \u041e\u0431\u043b\u0430\u0447\u043d\u043e\u0441\u0442\u044c"
   }
 }
 ]
