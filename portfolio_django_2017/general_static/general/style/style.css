@@ -227,11 +227,11 @@ footer {
     }
 
     body p, body h1, body h2, body h3, body h4 {
-        margin: 20px 0px;
+        margin: 5px 0px 20px 0px;
     }
 
     article {
-        margin: 20px 0 45px 0;
+        margin: 5px 0 45px 0;
     }
 
     .main_examples_img {
@@ -432,11 +432,11 @@ footer {
         font-size: 24px;
     }
     body p, body h1, body h2, body h3, body h4 {
-        margin: 35px 0px;
+        margin: 5px 0px 35px 0px;
     }
 
     article {
-        margin: 45px 0 25px 0;
+        margin: 15px 0 25px 0;
     }
 
     .puzzle_button{
