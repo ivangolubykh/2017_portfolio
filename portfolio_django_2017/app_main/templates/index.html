@@ -6,7 +6,7 @@
 {% endblock %}
 {% block content  %}
     <div class="my_foto">
-        <img src="{% static path_to_my_photo %}">
+        <img alt="Иван Борисович Голубых" src="{% static path_to_my_photo %}">
     </div>
     {% for h1 in object_list %}
         {% if h1.text %}
