@@ -17,16 +17,16 @@
         <div class="examples_wor_obj">
             <div class="examples_work_img">
                 {% if object.image_file %}
-                    <img src="{{ MEDIA_URL }}{{ object.image_file }}">
+                    <img alt="{{ object.name_project }}" src="{{ MEDIA_URL }}{{ object.image_file }}">
                 {% else %}
                     {% if section == 'Python/Django' %}
-                        <img src="{% static 'app_main/img/python_django_286.gif' %}">
+                        <img alt="Python/Django" src="{% static 'app_main/img/python_django_286.gif' %}">
                     {% endif %}
                     {% if section == 'JavaScript' %}
-                        <img src="{% static 'app_main/img/java_script_286.gif' %}">
+                        <img alt="JavaScript" src="{% static 'app_main/img/java_script_286.gif' %}">
                     {% endif %}
                     {% if section == 'Html5/Css3' %}
-                        <img src="{% static 'app_main/img/html_css_286.gif' %}">
+                        <img alt="HTML/CSS" src="{% static 'app_main/img/html_css_286.gif' %}">
                     {% endif %}
                 {% endif %}
             </div>
