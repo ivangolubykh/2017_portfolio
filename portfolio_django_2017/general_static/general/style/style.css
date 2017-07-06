@@ -552,6 +552,7 @@ footer {
     display: none;
     z-index: 2;
     background: rgba(35,97,176,0.7);
+    border-radius: 10px;
 }
 .triangle {
     display: inline-block;
