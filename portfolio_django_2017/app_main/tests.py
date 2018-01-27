@@ -1,5 +1,12 @@
+import datetime
+import mock
 from django.test import TestCase
+from django.db import transaction
 from django.core.urlresolvers import reverse
+from django.utils import timezone
+from .models import Weather_For_Json
+
+__author__ = 'Иван Голубых'
 
 
 class TestMainPage(TestCase):
@@ -25,17 +32,25 @@ class TestMainPage(TestCase):
         """ Тест на наличие всех пунктов меню на сайте: Главная, Примеры работ,
         Учёбы, Работы, Контакты.
         """
-        response = self.client.get(reverse('main'))
-        self.assertIn('>Главная</a>', response.content.decode(),
-                      msg='На странице отсутствует меню Главная')
-        self.assertIn('>Примеры работ</a>', response.content.decode(),
-                      msg='На странице отсутствует меню Примеры работ')
-        self.assertIn('>Учёбы</a>', response.content.decode(),
-                      msg='На странице отсутствует меню Учёбы')
-        self.assertIn('>Работы</a>', response.content.decode(),
-                      msg='На странице отсутствует меню Работы')
-        self.assertIn('>Контакты</a>', response.content.decode(),
-                      msg='На странице отсутствует меню Контакты')
+        for month in range(1, 13):
+            _test_time = datetime.datetime(
+                year=2017, month=month, day=16, hour=18, minute=15,
+                tzinfo=datetime.timezone.utc
+            )
+            with mock.patch('django.utils.timezone.now') as perm_mock:
+                perm_mock.return_value = _test_time
+
+                response = self.client.get(reverse('main'))
+                self.assertIn('>Главная</a>', response.content.decode(),
+                              msg='На странице отсутствует меню Главная')
+                self.assertIn('>Примеры работ</a>', response.content.decode(),
+                              msg='На странице отсутствует меню Примеры работ')
+                self.assertIn('>Учёбы</a>', response.content.decode(),
+                              msg='На странице отсутствует меню Учёбы')
+                self.assertIn('>Работы</a>', response.content.decode(),
+                              msg='На странице отсутствует меню Работы')
+                self.assertIn('>Контакты</a>', response.content.decode(),
+                              msg='На странице отсутствует меню Контакты')
 
     def test_main_page_futer(self):
         """ Тест на наличие всех обязательных текстов в футере:
@@ -55,9 +70,66 @@ class TestMainPage(TestCase):
         self.assertIn('Все права защищены', response.content.decode(),
                       msg='На странице отсутствует автоское право')
 
+    @transaction.atomic()
     def test_weather_json(self):
         """ Тест на успешную выдчу данных в формате Json стрианицы погоды.
         """
+        response = self.client.get(reverse('weather_json'))
+        self.assertEqual(response.status_code, 200,
+                         msg='Страница погоды (для ajax) работает неверно:'
+                             ' не возвращает код 200 OK')
+        self.assertEqual(response['Content-Type'], 'application/json',
+                         msg='Страница погоды (для ajax) работает неверно: '
+                             'не возвращает тип данных application/json')
+
+        response = self.client.get(reverse('main'))
+        Weather_For_Json.objects.all().delete()
+        response = self.client.get(reverse('weather_json'))
+        self.assertEqual(response.status_code, 200,
+                         msg='Страница погоды (для ajax) работает неверно:'
+                             ' не возвращает код 200 OK при  наличии сессии')
+        self.assertEqual(response['Content-Type'], 'application/json',
+                         msg='Страница погоды (для ajax) работает неверно: '
+                             'не возвращает тип данных application/json при '
+                             'наличии сессии')
+
+        _test_time = timezone.now()
+        _test_time += datetime.timedelta(seconds=901)
+        with mock.patch('django.utils.timezone.now') as perm_mock:
+            perm_mock.return_value = _test_time
+            response = self.client.get(reverse('weather_json'))
+            self.assertEqual(
+                response.status_code, 200,
+                msg='Страница погоды (для ajax) работает неверно:'
+                    ' не возвращает код 200 OK при  наличии сессии'
+            )
+            self.assertEqual(
+                response['Content-Type'], 'application/json',
+                msg='Страница погоды (для ajax) работает неверно: '
+                    'не возвращает тип данных application/json при '
+                    'наличии сессии'
+            )
+
+        _test_time = timezone.now()
+        _test_time += datetime.timedelta(seconds=901*2)
+        with mock.patch('django.utils.timezone.now') as perm_mock:
+            perm_mock.return_value = _test_time
+            with mock.patch('requests.get') as perm_mock3:
+                perm_mock3.return_value = None
+                response = self.client.get(reverse('weather_json'))
+                self.assertEqual(
+                    response.status_code, 200,
+                    msg='Страница погоды (для ajax) работает неверно:'
+                        ' не возвращает код 200 OK при  наличии сессии'
+                )
+                self.assertEqual(
+                    response['Content-Type'],
+                    'application/json',
+                    msg='Страница погоды (для ajax) работает неверно: '
+                        'не возвращает тип данных application/json при '
+                        'наличии сессии'
+                )
+
         response = self.client.get(reverse('weather_json'))
         self.assertEqual(response.status_code, 200,
                          msg='Страница погоды (для ajax) работает неверно:'

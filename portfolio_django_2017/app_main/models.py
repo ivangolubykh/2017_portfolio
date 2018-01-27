@@ -1,14 +1,16 @@
 from django.db import models
-from django.core.urlresolvers import reverse
-''' Предусмотрел в БД 4 уровня заголовков или списков, т.к. в
- перспективе структура электронного резюмерезюме может сильно меняться.
-'''
 from .models_main_page import *
 from .models_examples_work_python import *
 from .models_examples_work_js import *
 from .models_examples_work_html_css import *
 from .models_education import *
 from .models_works import *
+
+__author__ = 'Иван Голубых'
+
+''' Предусмотрел в БД 4 уровня заголовков или списков, т.к. в
+ перспективе структура электронного резюмерезюме может сильно меняться.
+'''
 
 
 class Weather_For_Json(models.Model):
@@ -22,8 +24,7 @@ class Weather_For_Json(models.Model):
         auto_now=True,
         help_text='Дата и время последнего сохранения данных погоды из api',
         verbose_name="Дата и время последнего сохранения данных погоды из api",
-        )
-
+    )
     image = models.CharField(max_length=255,
                              # При blank=True поле может быть пустым
                              # (т.е. оно необязательное):

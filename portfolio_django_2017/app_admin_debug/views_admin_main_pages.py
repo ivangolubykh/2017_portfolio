@@ -5,6 +5,8 @@ from app_main.models import MainHeader1Text, MainHeader2Text, MainHeader3Text,\
     MainHeader4Text, MainText
 from django.core.urlresolvers import reverse_lazy
 
+__author__ = 'Иван Голубых'
+
 
 # Главная страница админки:
 class AdminListView(ListView):

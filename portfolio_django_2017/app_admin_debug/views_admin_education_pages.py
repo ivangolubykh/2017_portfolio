@@ -4,6 +4,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from app_main.models import Education
 from django.core.urlresolvers import reverse_lazy
 
+__author__ = 'Иван Голубых'
+
 
 # Пдминка текстов для страницы примеров работ на питоне:
 class AdminEducationListView(ListView):
