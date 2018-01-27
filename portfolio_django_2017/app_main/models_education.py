@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from PIL import Image
+
+__author__ = 'Иван Голубых'
 
 
 # #################

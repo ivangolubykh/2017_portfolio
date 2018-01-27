@@ -19,6 +19,7 @@ from .views import MainListView, weather_json, ExamplesWorkListView,\
     ExamplesWorkHtmlCssListView, EducationListView, WorksListView,\
     ContactListView
 
+__author__ = 'Иван Голубых'
 
 urlpatterns = [
     url(r'^$', MainListView.as_view(), name='main'),

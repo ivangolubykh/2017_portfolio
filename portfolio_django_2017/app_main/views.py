@@ -8,7 +8,9 @@ from portfolio_django_2017.settings import STATIC_URL
 from django.db import transaction
 from django.utils import timezone
 from django.core.urlresolvers import reverse
-from datetime import datetime
+from django.utils import timezone as datetime
+
+__author__ = 'Иван Голубых'
 
 
 def crumbs(object):

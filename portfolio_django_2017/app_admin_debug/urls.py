@@ -27,6 +27,8 @@ from .views import AdminListView, H1Create, H2Create, H3Create, H4Create, \
     AdminEducationUpdate,\
     AdminWorksListView, AdminWorksCreate, AdminWorksDelete, AdminWorksUpdate
 
+__author__ = 'Иван Голубых'
+
 # Блок страниц админки для главной страницы:
 urlpatterns = [
     url(r'^admin/$', AdminListView.as_view(), name='admin'),

@@ -1,3 +1,5 @@
 /.idea/
 /static/
 __pycache__/
+.coverage
+/_tests_coverage_html_report/

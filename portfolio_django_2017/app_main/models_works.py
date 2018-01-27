@@ -1,10 +1,11 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from PIL import Image
+
+__author__ = 'Иван Голубых'
 
 
 # #################
-# Группа классов модели для данных страницы Учёбы (образование):
+# Группа классов модели для данных страницы Работы (места работ):
 # #################
 class Works(models.Model):
     ''' Текстовые заголовки уровня <h1>

@@ -1,5 +1,8 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+
+__author__ = 'Иван Голубых'
+
 ''' Предусмотрел в БД 4 уровня заголовков или списков, т.к. в
  перспективе структура электронного резюмерезюме может сильно меняться.
 '''
