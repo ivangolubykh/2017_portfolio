@@ -1,5 +1,5 @@
 # sudo pip3 install -r requirements.txt
-Django==1.11
+Django==1.11.15
 Pillow==4.2.1
 requests==2.18.3
 django-debug-toolbar==1.6
