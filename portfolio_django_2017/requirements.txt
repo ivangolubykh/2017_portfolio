@@ -1,7 +1,7 @@
 # sudo pip3 install -r requirements.txt
 Django==1.11.15
 Pillow==4.2.1
-requests==2.18.3
+requests==2.20.0
 django-debug-toolbar==1.6
 factory-boy==2.9.2
 mock==2.0.0
